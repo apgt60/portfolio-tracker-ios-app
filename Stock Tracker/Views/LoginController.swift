@@ -15,13 +15,10 @@ class LoginController: UIViewController {
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
+        passwordText.isSecureTextEntry = true
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
@@ -42,7 +39,9 @@ class LoginController: UIViewController {
             }
             
             print("successfully logged in and got new user id \(self.userManager.localUser!.id)")
-            
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "showHome", sender: self)
+            }
         })
     }
     

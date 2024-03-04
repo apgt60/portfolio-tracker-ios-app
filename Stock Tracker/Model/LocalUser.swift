@@ -10,6 +10,8 @@ import Foundation
 struct LocalUser: Codable {
     let id: Int
     let username: String
+    let firstname: String
+    let lastname: String
     //created
 }
 

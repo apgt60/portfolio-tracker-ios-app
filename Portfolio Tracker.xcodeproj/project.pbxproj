@@ -20,6 +20,21 @@
 		28E60AE92B8F8417008BBC82 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AE82B8F8417008BBC82 /* NetworkManager.swift */; };
 		28E60AEC2B8F87B0008BBC82 /* LocalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AEB2B8F87B0008BBC82 /* LocalUser.swift */; };
 		28E60AEE2B8F8B51008BBC82 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AED2B8F8B51008BBC82 /* UserManager.swift */; };
+		28E60AF12B90B508008BBC82 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AF02B90B508008BBC82 /* HomeViewController.swift */; };
+		28E60AF22B90B508008BBC82 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AF02B90B508008BBC82 /* HomeViewController.swift */; };
+		28E60AF32B90B508008BBC82 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AF02B90B508008BBC82 /* HomeViewController.swift */; };
+		28E60AF72B90D60B008BBC82 /* StockPositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AF52B90D60B008BBC82 /* StockPositionCell.swift */; };
+		28E60AF82B90D60B008BBC82 /* StockPositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AF52B90D60B008BBC82 /* StockPositionCell.swift */; };
+		28E60AF92B90D60B008BBC82 /* StockPositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AF52B90D60B008BBC82 /* StockPositionCell.swift */; };
+		28E60AFA2B90D60B008BBC82 /* StockPositionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E60AF62B90D60B008BBC82 /* StockPositionCell.xib */; };
+		28E60AFB2B90D60B008BBC82 /* StockPositionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E60AF62B90D60B008BBC82 /* StockPositionCell.xib */; };
+		28E60AFC2B90D60B008BBC82 /* StockPositionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E60AF62B90D60B008BBC82 /* StockPositionCell.xib */; };
+		28E60AFE2B90DECD008BBC82 /* StockWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AFD2B90DECD008BBC82 /* StockWatch.swift */; };
+		28E60AFF2B90DECD008BBC82 /* StockWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AFD2B90DECD008BBC82 /* StockWatch.swift */; };
+		28E60B002B90DECD008BBC82 /* StockWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AFD2B90DECD008BBC82 /* StockWatch.swift */; };
+		28E60B022B9653E1008BBC82 /* AddStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B012B9653E1008BBC82 /* AddStockViewController.swift */; };
+		28E60B032B9653E1008BBC82 /* AddStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B012B9653E1008BBC82 /* AddStockViewController.swift */; };
+		28E60B042B9653E1008BBC82 /* AddStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B012B9653E1008BBC82 /* AddStockViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +72,11 @@
 		28E60AE82B8F8417008BBC82 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		28E60AEB2B8F87B0008BBC82 /* LocalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUser.swift; sourceTree = "<group>"; };
 		28E60AED2B8F8B51008BBC82 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		28E60AF02B90B508008BBC82 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		28E60AF52B90D60B008BBC82 /* StockPositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPositionCell.swift; sourceTree = "<group>"; };
+		28E60AF62B90D60B008BBC82 /* StockPositionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockPositionCell.xib; sourceTree = "<group>"; };
+		28E60AFD2B90DECD008BBC82 /* StockWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatch.swift; sourceTree = "<group>"; };
+		28E60B012B9653E1008BBC82 /* AddStockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +127,12 @@
 		28E60AB32B8F7E0E008BBC82 /* Stock Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				28E60AF42B90D4AC008BBC82 /* Display */,
+				28E60AEF2B90B4A5008BBC82 /* Views */,
 				28E60AEA2B8F8785008BBC82 /* Model */,
 				28E60AE72B8F83F0008BBC82 /* Managers */,
 				28E60AB42B8F7E0E008BBC82 /* AppDelegate.swift */,
 				28E60AB62B8F7E0E008BBC82 /* SceneDelegate.swift */,
-				28E60AB82B8F7E0E008BBC82 /* LoginController.swift */,
 				28E60ABA2B8F7E0E008BBC82 /* Main.storyboard */,
 				28E60AC02B8F7E11008BBC82 /* Assets.xcassets */,
 				28E60AC22B8F7E11008BBC82 /* LaunchScreen.storyboard */,
@@ -151,8 +172,28 @@
 			isa = PBXGroup;
 			children = (
 				28E60AEB2B8F87B0008BBC82 /* LocalUser.swift */,
+				28E60AFD2B90DECD008BBC82 /* StockWatch.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		28E60AEF2B90B4A5008BBC82 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28E60AB82B8F7E0E008BBC82 /* LoginController.swift */,
+				28E60AF02B90B508008BBC82 /* HomeViewController.swift */,
+				28E60B012B9653E1008BBC82 /* AddStockViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		28E60AF42B90D4AC008BBC82 /* Display */ = {
+			isa = PBXGroup;
+			children = (
+				28E60AF52B90D60B008BBC82 /* StockPositionCell.swift */,
+				28E60AF62B90D60B008BBC82 /* StockPositionCell.xib */,
+			);
+			path = Display;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +303,7 @@
 				28E60AC42B8F7E11008BBC82 /* LaunchScreen.storyboard in Resources */,
 				28E60AC12B8F7E11008BBC82 /* Assets.xcassets in Resources */,
 				28E60ABC2B8F7E0E008BBC82 /* Main.storyboard in Resources */,
+				28E60AFA2B90D60B008BBC82 /* StockPositionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E60AFB2B90D60B008BBC82 /* StockPositionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E60AFC2B90D60B008BBC82 /* StockPositionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,9 +333,13 @@
 				28E60AB92B8F7E0E008BBC82 /* LoginController.swift in Sources */,
 				28E60ABF2B8F7E0E008BBC82 /* Stock_Tracker.xcdatamodeld in Sources */,
 				28E60AEE2B8F8B51008BBC82 /* UserManager.swift in Sources */,
+				28E60AF72B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
+				28E60AFE2B90DECD008BBC82 /* StockWatch.swift in Sources */,
 				28E60AE92B8F8417008BBC82 /* NetworkManager.swift in Sources */,
 				28E60AB52B8F7E0E008BBC82 /* AppDelegate.swift in Sources */,
 				28E60AEC2B8F87B0008BBC82 /* LocalUser.swift in Sources */,
+				28E60B022B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
+				28E60AF12B90B508008BBC82 /* HomeViewController.swift in Sources */,
 				28E60AB72B8F7E0E008BBC82 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,7 +348,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E60AF82B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
+				28E60AF22B90B508008BBC82 /* HomeViewController.swift in Sources */,
+				28E60AFF2B90DECD008BBC82 /* StockWatch.swift in Sources */,
 				28E60ACF2B8F7E11008BBC82 /* Stock_TrackerTests.swift in Sources */,
+				28E60B032B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +360,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E60AF32B90B508008BBC82 /* HomeViewController.swift in Sources */,
 				28E60ADB2B8F7E11008BBC82 /* Stock_TrackerUITestsLaunchTests.swift in Sources */,
 				28E60AD92B8F7E11008BBC82 /* Stock_TrackerUITests.swift in Sources */,
+				28E60AF92B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
+				28E60B002B90DECD008BBC82 /* StockWatch.swift in Sources */,
+				28E60B042B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
