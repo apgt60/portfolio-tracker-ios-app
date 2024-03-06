@@ -191,4 +191,36 @@ class NetworkManager {
         task.resume()
     }
     
+    func getImageData(imageUrl: String, _ callback : @escaping (Data?, DMError?) -> ()) {
+        
+        let url = URL(string: imageUrl)
+        if(url == nil){
+            callback(nil, DMError.invalidURL)
+            return
+        }
+        
+        //create the Request object using the url object
+        var request = URLRequest(url: url!)
+        //set http method as GET
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if(error != nil){
+                print("Error not nil: \(error!)")
+                callback(nil, DMError.unableToComplete)
+                return
+            }
+            
+            if(data == nil){
+                print("data is nil")
+                callback(nil, DMError.unableToComplete)
+                return
+            }
+            
+            callback(data, nil)
+        }
+        
+        task.resume()
+    }
+    
 }

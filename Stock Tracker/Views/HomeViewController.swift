@@ -87,6 +87,7 @@ extension HomeViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("tableView(stuff)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockPositionCellId", for: indexPath) as! StockPositionCell
         cell.quoteLabel.text = String(stockPositons[indexPath.row].quote)
         cell.tickerLabel.text = stockPositons[indexPath.row].ticker
@@ -98,27 +99,41 @@ extension HomeViewController : UITableViewDataSource {
         }
         cell.gainLoss.text = "\(stockPositons[indexPath.row].gainLoss)%"
         
-//        let url = URL(string: stockPositons[indexPath.row].logo)
-//        let data = try? Data(contentsOf: url!)
-//
-//        if let imageData = data {
-//            let image = UIImage(data: imageData)
-//            print("image.size for ticker \(cell.tickerLabel.text):\(image?.size)")
-//            cell.stockImage.image = image
-//        }
-        
-        // “https://eodhd.com/img/logos/US/MSFT.png“
-        
         let path = stockPositons[indexPath.row].logo
-        do {
-            let data = try Data(contentsOf: URL(string: path)!)
-            cell.stockImage.image = UIImage(data: data)
-        } catch {
+        print("path for ticker \(cell.tickerLabel.text!): \(path)")
+        networkManager.getImageData(imageUrl: path, {(data: Data?, error: DMError?) ->  () in
+            if let error {
+                print("Didn't find \(path)")
+            }
             
-        }
-        
-        
-        
+            if let data {
+                print("Received: \(data.count) bytes for image \(path).")
+                if(data.count > 200){
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        cell.stockImage.image = image
+                    }
+                } else {
+                    let newPath = self.stockPositons[indexPath.row].altLogo
+                    self.networkManager.getImageData(imageUrl: newPath, {(data: Data?, error: DMError?) ->  () in
+                        if let error {
+                            print("Didn't find \(newPath)")
+                        }
+                        
+                        if let data {
+                            print("Received: \(data.count) bytes for new image \(newPath).")
+                                let image = UIImage(data: data)
+                                DispatchQueue.main.async {
+                                    cell.stockImage.image = image
+                                }
+                        }
+                    })
+                }
+                
+                //self.tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+            }
+        })
+
         return cell
     }
     

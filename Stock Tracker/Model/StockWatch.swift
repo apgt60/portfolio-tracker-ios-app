@@ -15,6 +15,7 @@ struct StockWatchResponse: Codable {
 struct StockWatch: Codable {
     let ticker: String
     let logo: String
+    let altLogo: String
     let name: String
     let count: Float
     let cost: Float
