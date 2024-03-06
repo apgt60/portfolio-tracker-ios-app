@@ -7,13 +7,20 @@
 
 import Foundation
 
+struct StockWatchResponse: Codable {
+    let success: Bool
+    let watches: [StockWatch]
+}
+
 struct StockWatch: Codable {
     let ticker: String
     let logo: String
     let name: String
     let count: Float
     let cost: Float
+    let id: Int
     let quote: Float
+    let gainLoss: Float
 }
 
 /*

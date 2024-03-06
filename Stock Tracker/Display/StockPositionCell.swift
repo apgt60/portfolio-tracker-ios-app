@@ -10,10 +10,11 @@ import UIKit
 class StockPositionCell: UITableViewCell {
     
     @IBOutlet weak var tickerLabel: UILabel!
-    @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet weak var upDownIcon: UIImageView!
+    @IBOutlet weak var gainLoss: UILabel!
+    @IBOutlet weak var stockImage: UIImageView!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

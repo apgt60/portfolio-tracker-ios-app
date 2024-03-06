@@ -35,6 +35,9 @@
 		28E60B022B9653E1008BBC82 /* AddStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B012B9653E1008BBC82 /* AddStockViewController.swift */; };
 		28E60B032B9653E1008BBC82 /* AddStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B012B9653E1008BBC82 /* AddStockViewController.swift */; };
 		28E60B042B9653E1008BBC82 /* AddStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B012B9653E1008BBC82 /* AddStockViewController.swift */; };
+		28E60B062B965F87008BBC82 /* AddStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B052B965F87008BBC82 /* AddStockResponse.swift */; };
+		28E60B072B965F87008BBC82 /* AddStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B052B965F87008BBC82 /* AddStockResponse.swift */; };
+		28E60B082B965F87008BBC82 /* AddStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60B052B965F87008BBC82 /* AddStockResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,7 @@
 		28E60AF62B90D60B008BBC82 /* StockPositionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockPositionCell.xib; sourceTree = "<group>"; };
 		28E60AFD2B90DECD008BBC82 /* StockWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatch.swift; sourceTree = "<group>"; };
 		28E60B012B9653E1008BBC82 /* AddStockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockViewController.swift; sourceTree = "<group>"; };
+		28E60B052B965F87008BBC82 /* AddStockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,7 @@
 			children = (
 				28E60AEB2B8F87B0008BBC82 /* LocalUser.swift */,
 				28E60AFD2B90DECD008BBC82 /* StockWatch.swift */,
+				28E60B052B965F87008BBC82 /* AddStockResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				28E60AB52B8F7E0E008BBC82 /* AppDelegate.swift in Sources */,
 				28E60AEC2B8F87B0008BBC82 /* LocalUser.swift in Sources */,
 				28E60B022B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
+				28E60B062B965F87008BBC82 /* AddStockResponse.swift in Sources */,
 				28E60AF12B90B508008BBC82 /* HomeViewController.swift in Sources */,
 				28E60AB72B8F7E0E008BBC82 /* SceneDelegate.swift in Sources */,
 			);
@@ -351,6 +357,7 @@
 				28E60AF82B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
 				28E60AF22B90B508008BBC82 /* HomeViewController.swift in Sources */,
 				28E60AFF2B90DECD008BBC82 /* StockWatch.swift in Sources */,
+				28E60B072B965F87008BBC82 /* AddStockResponse.swift in Sources */,
 				28E60ACF2B8F7E11008BBC82 /* Stock_TrackerTests.swift in Sources */,
 				28E60B032B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
 			);
@@ -366,6 +373,7 @@
 				28E60AF92B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
 				28E60B002B90DECD008BBC82 /* StockWatch.swift in Sources */,
 				28E60B042B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
+				28E60B082B965F87008BBC82 /* AddStockResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
