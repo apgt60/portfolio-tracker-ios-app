@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     var networkManager = NetworkManager.shared
     var userManager = UserManager.shared
     
-//    var stockPositons = [
+    //    var stockPositons = [
 //        StockWatch(ticker: "GOOG", logo: "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/FB.svg", name: "Alphabet Inc.", count: 50, cost: 450, quote: 500)
 //    ]
     var stockPositons: [StockWatch] = []
@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         print("HomeViewController viewDidLoad()")
         // Do any additional setup after loading the view.
-        titleLabel.text = "\(userManager.localUser!.firstname) \(userManager.localUser!.lastname)"
+        titleLabel.text = "Portfolio for \(userManager.localUser!.firstname) \(userManager.localUser!.lastname)"
         
         tableView.dataSource = self
         title = ""

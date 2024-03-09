@@ -15,6 +15,9 @@ class StockPositionCell: UITableViewCell {
     @IBOutlet weak var gainLoss: UILabel!
     @IBOutlet weak var stockImage: UIImageView!
     
+    @IBAction func stockButtonPressed(_ sender: UIButton, forEvent event: UIEvent) {
+        print("button for ticker \(tickerLabel.text) pressed")
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
