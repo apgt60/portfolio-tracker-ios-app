@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28CEDE7C2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
+		28CEDE7D2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
+		28CEDE7E2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
 		28E60AB52B8F7E0E008BBC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AB42B8F7E0E008BBC82 /* AppDelegate.swift */; };
 		28E60AB72B8F7E0E008BBC82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AB62B8F7E0E008BBC82 /* SceneDelegate.swift */; };
 		28E60AB92B8F7E0E008BBC82 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E60AB82B8F7E0E008BBC82 /* LoginController.swift */; };
@@ -58,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatchDetailViewController.swift; sourceTree = "<group>"; };
 		28E60AB12B8F7E0E008BBC82 /* Portfolio Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portfolio Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E60AB42B8F7E0E008BBC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28E60AB62B8F7E0E008BBC82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				28E60AB82B8F7E0E008BBC82 /* LoginController.swift */,
+				28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */,
 				28E60AF02B90B508008BBC82 /* HomeViewController.swift */,
 				28E60B012B9653E1008BBC82 /* AddStockViewController.swift */,
 			);
@@ -347,6 +352,7 @@
 				28E60B062B965F87008BBC82 /* AddStockResponse.swift in Sources */,
 				28E60AF12B90B508008BBC82 /* HomeViewController.swift in Sources */,
 				28E60AB72B8F7E0E008BBC82 /* SceneDelegate.swift in Sources */,
+				28CEDE7C2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +362,7 @@
 			files = (
 				28E60AF82B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
 				28E60AF22B90B508008BBC82 /* HomeViewController.swift in Sources */,
+				28CEDE7D2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */,
 				28E60AFF2B90DECD008BBC82 /* StockWatch.swift in Sources */,
 				28E60B072B965F87008BBC82 /* AddStockResponse.swift in Sources */,
 				28E60ACF2B8F7E11008BBC82 /* Stock_TrackerTests.swift in Sources */,
@@ -367,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28CEDE7E2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */,
 				28E60AF32B90B508008BBC82 /* HomeViewController.swift in Sources */,
 				28E60ADB2B8F7E11008BBC82 /* Stock_TrackerUITestsLaunchTests.swift in Sources */,
 				28E60AD92B8F7E11008BBC82 /* Stock_TrackerUITests.swift in Sources */,

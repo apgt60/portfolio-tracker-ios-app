@@ -15,8 +15,12 @@ class StockPositionCell: UITableViewCell {
     @IBOutlet weak var gainLoss: UILabel!
     @IBOutlet weak var stockImage: UIImageView!
     
+    var stockWatch : StockWatch?
+    weak var delegate: StockPositionCellDelegate?
+    
     @IBAction func stockButtonPressed(_ sender: UIButton, forEvent event: UIEvent) {
         print("button for ticker \(tickerLabel.text) pressed")
+        delegate?.didTapButtonInCell(self)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,4 +33,8 @@ class StockPositionCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+protocol StockPositionCellDelegate: class {
+    func didTapButtonInCell(_ cell: StockPositionCell)
 }

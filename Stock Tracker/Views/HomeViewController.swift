@@ -7,15 +7,13 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, StockPositionCellDelegate {
     
     var networkManager = NetworkManager.shared
     var userManager = UserManager.shared
-    
-    //    var stockPositons = [
-//        StockWatch(ticker: "GOOG", logo: "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/FB.svg", name: "Alphabet Inc.", count: 50, cost: 450, quote: 500)
-//    ]
     var stockPositons: [StockWatch] = []
+    var currentDetailStockWatch : StockWatch?
+    var currentDetailStockPositionCell : StockPositionCell?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,6 +28,10 @@ class HomeViewController: UIViewController {
         if segue.identifier  == "showAddModal" {
             print("Segue triggered for HomeViewController with segue identifier \(segue.identifier!)")
             let newVc = segue.destination as! AddStockViewController
+            newVc.parentViewContoller = self
+        } else if segue.identifier == "showDetailModal" {
+            print("Segue triggered for HomeViewController with segue identifier \(segue.identifier!)")
+            let newVc = segue.destination as! StockWatchDetailViewController
             newVc.parentViewContoller = self
         }
     }
@@ -79,6 +81,15 @@ class HomeViewController: UIViewController {
     }
 }
 
+extension HomeViewController : UITableViewDelegate {
+    func didTapButtonInCell(_ cell: StockPositionCell) {
+        print("Load details screen for \(cell.stockWatch?.ticker)")
+        print("self: \(self)")
+        self.currentDetailStockWatch = cell.stockWatch
+        self.currentDetailStockPositionCell = cell
+        self.performSegue(withIdentifier: "showDetailModal", sender: self)
+    }
+}
 
 
 extension HomeViewController : UITableViewDataSource {
@@ -89,17 +100,21 @@ extension HomeViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("tableView(stuff)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockPositionCellId", for: indexPath) as! StockPositionCell
-        cell.quoteLabel.text = String(stockPositons[indexPath.row].quote)
-        cell.tickerLabel.text = stockPositons[indexPath.row].ticker
+        let stockPosition = stockPositons[indexPath.row]
         
-        if(stockPositons[indexPath.row].quote >= stockPositons[indexPath.row].cost){
+        cell.quoteLabel.text = String(stockPosition.quote)
+        cell.tickerLabel.text = stockPosition.ticker
+        cell.stockWatch = stockPosition
+        cell.delegate = self
+        
+        if(stockPosition.quote >= stockPosition.cost){
             cell.upDownIcon.image = UIImage(named: "UpArrow")
         } else {
             cell.upDownIcon.image = UIImage(named: "DownArrow")
         }
-        cell.gainLoss.text = "\(stockPositons[indexPath.row].gainLoss)%"
+        cell.gainLoss.text = "\(stockPosition.gainLoss)%"
         
-        let path = stockPositons[indexPath.row].logo
+        let path = stockPosition.logo
         print("path for ticker \(cell.tickerLabel.text!): \(path)")
         networkManager.getImageData(imageUrl: path, {(data: Data?, error: DMError?) ->  () in
             if let error {
@@ -109,11 +124,13 @@ extension HomeViewController : UITableViewDataSource {
             if let data {
                 print("Received: \(data.count) bytes for image \(path).")
                 if(data.count > 200){
+                    //this means it was found for stockPositons[i].logo
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
                         cell.stockImage.image = image
                     }
                 } else {
+                    //try altLogo
                     let newPath = self.stockPositons[indexPath.row].altLogo
                     self.networkManager.getImageData(imageUrl: newPath, {(data: Data?, error: DMError?) ->  () in
                         if let error {
