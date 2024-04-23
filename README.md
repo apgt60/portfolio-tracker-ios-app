@@ -1,1 +1,1 @@
-![iOS Portfolio Tracker App Screenshot](https://drive.google.com/file/d/1z_z8a6PxTdZlNBSNjssxFemGG0yuxjpb/view?usp=sharing](https://drive.google.com/file/d/1EyK_tanW8oWg8W-0awwph0Jp81SpG-WQ/view?usp=sharing)
+![iOS Portfolio Tracker App Screenshot]("/public/Portfolio Tracker 20240423.png")
