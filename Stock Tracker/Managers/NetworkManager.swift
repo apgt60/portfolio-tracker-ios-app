@@ -17,7 +17,8 @@ enum DMError: String, Error {
 
 class NetworkManager {
     static let shared = NetworkManager()
-    private let baseUrl = "http://localhost:8765/api/" //login"
+    private let baseUrl = "http://localhost:8765/api/"
+        //"https://portfolio-tracker-server-j0cb.onrender.com/api/"
     
     private init() {}
     
@@ -77,11 +78,11 @@ class NetworkManager {
         task.resume()
     }
     
-    func getStockWatches(userId: Int, _ callback : @escaping ([StockWatch]?, DMError?) -> ()) {
+    func getStockWatches(userId: String, _ callback : @escaping ([StockWatch]?, DMError?) -> ()) {
         
         let usersURL = baseUrl + "stockwatches"
         //{"appuser_id":6}
-        let params = ["appuser_id": userId]
+        let params = ["appuser_guid": userId]
         
         let url = URL(string: usersURL)
         if(url == nil){
@@ -134,11 +135,11 @@ class NetworkManager {
         task.resume()
     }
     
-    func addStockWatch(userId: Int, count: Int , ticker: String, cost: Float, _ callback : @escaping (AddStockResponse?, DMError?) -> ()) {
+    func addStockWatch(userGuid: String, count: Int , ticker: String, cost: Float, _ callback : @escaping (AddStockResponse?, DMError?) -> ()) {
         
         let usersURL = baseUrl + "addstockwatch"
         //{"appuser_id":6,"ticker":"aapl","count": 0,"cost":0}
-        let params = ["appuser_id": userId, "ticker": ticker, "count": count, "cost": cost] as [String : Any]
+        let params = ["appuser_guid": userGuid, "ticker": ticker, "count": count, "cost": cost] as [String : Any]
         
         let url = URL(string: usersURL)
         if(url == nil){

@@ -8,7 +8,7 @@
 import Foundation
 
 struct LocalUser: Codable {
-    let id: Int
+    let guid: String
     let username: String
     let firstname: String
     let lastname: String

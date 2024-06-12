@@ -54,7 +54,7 @@ class HomeViewController: UIViewController, StockPositionCellDelegate {
     }
     
     func loadData(){
-        networkManager.getStockWatches(userId:userManager.localUser!.id, {(stockWatches: [StockWatch]?, error: DMError?) ->  () in
+        networkManager.getStockWatches(userId:userManager.localUser!.guid, {(stockWatches: [StockWatch]?, error: DMError?) ->  () in
             if let error {
                 DispatchQueue.main.async {
 //                    self.presentError(error)
@@ -62,7 +62,7 @@ class HomeViewController: UIViewController, StockPositionCellDelegate {
             }
             
             if let stockWatches {
-                print("Received: \(stockWatches.count) stockwatches for user id: \(self.userManager.localUser!.id)")
+                print("Received: \(stockWatches.count) stockwatches for user id: \(self.userManager.localUser!.guid)")
                 self.stockPositons = stockWatches
             }
             

@@ -42,8 +42,6 @@ class StockWatchDetailViewController : UIViewController {
             self.upDownIcon.image = imageForUpDownIcon
         }
         
-        print("stockWatch?.ticker:")
-        print("\(stockWatch!.ticker)")
         self.tickerLabel.text = stockWatch!.ticker
         self.nameLabel.text = stockWatch!.name
 //        self.quoteLabel.text = "$\(String(describing: stockWatch!.quote))"

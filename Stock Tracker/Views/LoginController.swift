@@ -30,7 +30,7 @@ class LoginController: UIViewController {
             }
             
             if let localUser {
-                print("Received user: \(localUser.username) with id: \(localUser.id)")
+                print("Received user: \(localUser.username) with id: \(localUser.guid)")
                 self.userManager.localUser = localUser
             }
             
@@ -38,7 +38,7 @@ class LoginController: UIViewController {
                 //self.tableView.reloadData()
             }
             
-            print("successfully logged in and got new user id \(self.userManager.localUser!.id)")
+            print("successfully logged in and got new user id \(self.userManager.localUser?.guid)")
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "showHome", sender: self)
             }
