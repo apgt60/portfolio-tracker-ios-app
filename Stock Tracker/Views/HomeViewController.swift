@@ -54,10 +54,11 @@ class HomeViewController: UIViewController, StockPositionCellDelegate {
     }
     
     func loadData(){
-        networkManager.getStockWatches(userId:userManager.localUser!.guid, {(stockWatches: [StockWatch]?, error: DMError?) ->  () in
+        networkManager.getStockWatches(authToken:userManager.authToken!, {(stockWatches: [StockWatch]?, error: DMError?) ->  () in
             if let error {
                 DispatchQueue.main.async {
-//                    self.presentError(error)
+                    print("Error getting stock watches:")
+                    self.presentError(error)
                 }
             }
             
@@ -79,6 +80,12 @@ class HomeViewController: UIViewController, StockPositionCellDelegate {
     override func viewIsAppearing(_ animated: Bool) {
         print("viewIsAppearing called on HomeViewController")
     }
+    
+    func presentError(_ error : DMError){
+       print(error.rawValue)
+       let alert = UIAlertController(title: "Network Error", message: error.rawValue, preferredStyle: .alert)
+       present(alert, animated: true, completion: nil)
+   }
 }
 
 extension HomeViewController : UITableViewDelegate {

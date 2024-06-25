@@ -12,6 +12,7 @@ enum DMError: String, Error {
     case unableToComplete = "Unable to complete your request. Please check your internet connection."
     case invalidResponse = "Invalid response from the server. Please try again."
     case invalidData = "The data received from the server was invalid. Please try again."
+    case invalidCredentials = "The username and password is incorrect.  Please try again."
 }
 
 
@@ -22,7 +23,7 @@ class NetworkManager {
     
     private init() {}
     
-    func getUser(username: String, password: String, _ callback : @escaping (LocalUser?, DMError?) -> ()) {
+    func getUser(username: String, password: String, _ callback : @escaping (LoginResponse?, DMError?) -> ()) {
         
         let usersURL = baseUrl + "login"
         let params = ["username": username, "password": password]
@@ -66,8 +67,24 @@ class NetworkManager {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
+            //Check for 401 Unauthorized if credentials are incorrect
+            if let httpResponse = response as? HTTPURLResponse{
+                if httpResponse.statusCode == 401{
+                    do {
+                        let decodedData = try decoder.decode(GenericErrorResponse.self, from: data!)
+                        print("401 server response: \(decodedData.message)")
+                        callback(nil, DMError.invalidCredentials)
+                        return
+                    } catch {
+                        callback(nil, DMError.invalidResponse)
+                        print(error)
+                        return
+                    }
+                }
+            }
+            
             do {
-                let decodedData = try decoder.decode(LocalUser.self, from: data!)
+                let decodedData = try decoder.decode(LoginResponse.self, from: data!)
                 callback(decodedData, nil)
             } catch {
                 callback(nil, DMError.invalidResponse)
@@ -78,11 +95,10 @@ class NetworkManager {
         task.resume()
     }
     
-    func getStockWatches(userId: String, _ callback : @escaping ([StockWatch]?, DMError?) -> ()) {
+    func getStockWatches(authToken: String, _ callback : @escaping ([StockWatch]?, DMError?) -> ()) {
         
         let usersURL = baseUrl + "stockwatches"
         //{"appuser_id":6}
-        let params = ["appuser_guid": userId]
         
         let url = URL(string: usersURL)
         if(url == nil){
@@ -95,17 +111,10 @@ class NetworkManager {
         //set http method as GET
         request.httpMethod = "POST"
 
-        do {
-            // pass dictionary to data object and set it as request body
-            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-            callback(nil, DMError.invalidURL)
-        }
-        
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(authToken, forHTTPHeaderField: "authtoken")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if(error != nil){
@@ -135,11 +144,11 @@ class NetworkManager {
         task.resume()
     }
     
-    func addStockWatch(userGuid: String, count: Int , ticker: String, cost: Float, _ callback : @escaping (AddStockResponse?, DMError?) -> ()) {
+    func addStockWatch(authToken: String, count: Int , ticker: String, cost: Float, _ callback : @escaping (AddStockResponse?, DMError?) -> ()) {
         
         let usersURL = baseUrl + "addstockwatch"
-        //{"appuser_id":6,"ticker":"aapl","count": 0,"cost":0}
-        let params = ["appuser_guid": userGuid, "ticker": ticker, "count": count, "cost": cost] as [String : Any]
+        //{"ticker":"aapl","count": 0,"cost":0}
+        let params = ["ticker": ticker, "count": count, "cost": cost] as [String : Any]
         
         let url = URL(string: usersURL)
         if(url == nil){
@@ -163,6 +172,7 @@ class NetworkManager {
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(authToken, forHTTPHeaderField: "authtoken")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if(error != nil){

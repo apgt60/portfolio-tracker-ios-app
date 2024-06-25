@@ -12,10 +12,10 @@ struct LocalUser: Codable {
     let username: String
     let firstname: String
     let lastname: String
-    //created
 }
 
-//{"id":6,"username":"user02","created":"2024-02-27T09:49:04.933Z"}
+//{"guid": "2e152be8-0518-40a0-9084-ea5764b98ec6","username":"userH002",
+//"firstname": "Testy","lastname": "Tester","created": "2024-06-24T20:06:55.060Z"}
 
 
 

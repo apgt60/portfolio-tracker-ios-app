@@ -19,8 +19,8 @@ class AddStockViewController: UIViewController {
     
     @IBAction func addStockButtonPressed(_ sender: UIButton) {
         print("adding \(quantityField.text!) shares of \(stockSymbolField.text!) with price of \(priceField.text!) to list")
-        //userId: Int, count: Int , ticker: String, cost: Float
-        networkManager.addStockWatch(userGuid:self.userManager.localUser!.guid, count: Int(quantityField.text!)!, ticker: stockSymbolField.text!, cost: Float(priceField.text!)!, {(addStockResponse: AddStockResponse?, error: DMError?) ->  () in
+        //authToken, count: Int , ticker: String, cost: Float
+        networkManager.addStockWatch(authToken:self.userManager.authToken!, count: Int(quantityField.text!)!, ticker: stockSymbolField.text!, cost: Float(priceField.text!)!, {(addStockResponse: AddStockResponse?, error: DMError?) ->  () in
             if let error {
                 DispatchQueue.main.async {
                     //self.presentError(error)

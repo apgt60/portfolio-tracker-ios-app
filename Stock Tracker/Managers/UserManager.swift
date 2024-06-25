@@ -11,6 +11,7 @@ class UserManager {
     static let shared = UserManager()
     
     var localUser : LocalUser?
+    var authToken: String?
     
     private init() {}
 }
