@@ -20,10 +20,17 @@ class AddStockViewController: UIViewController {
     @IBAction func addStockButtonPressed(_ sender: UIButton) {
         print("adding \(quantityField.text!) shares of \(stockSymbolField.text!) with price of \(priceField.text!) to list")
         //authToken, count: Int , ticker: String, cost: Float
-        networkManager.addStockWatch(authToken:self.userManager.authToken!, count: Int(quantityField.text!)!, ticker: stockSymbolField.text!, cost: Float(priceField.text!)!, {(addStockResponse: AddStockResponse?, error: DMError?) ->  () in
+        let quantity = Float(quantityField.text!)
+        let price = Float(priceField.text!)
+        if(quantity == nil || price == nil){
+            presentInputError("Quantity and Price must be numbers.")
+            return
+        }
+        
+        networkManager.addStockWatch(authToken:self.userManager.authToken!, count: quantity!, ticker: stockSymbolField.text!, cost: price!, {(addStockResponse: AddStockResponse?, error: DMError?) ->  () in
             if let error {
                 DispatchQueue.main.async {
-                    //self.presentError(error)
+                    self.presentError(error)
                 }
             }
             
@@ -43,6 +50,19 @@ class AddStockViewController: UIViewController {
 //                self.performSegue(withIdentifier: "showHome", sender: self)
 //            }
         })
+    }
+    
+    func presentError(_ error : DMError){
+        print(error.rawValue)
+        let alert = UIAlertController(title: "Add Stock Error", message: error.rawValue, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in}))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentInputError(_ error : String){
+        let alert = UIAlertController(title: "Add Stock Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in}))
+        present(alert, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {

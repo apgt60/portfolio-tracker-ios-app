@@ -13,6 +13,7 @@ enum DMError: String, Error {
     case invalidResponse = "Invalid response from the server. Please try again."
     case invalidData = "The data received from the server was invalid. Please try again."
     case invalidCredentials = "The username and password is incorrect.  Please try again."
+    case invalidTicker = "The ticker symbol entered is invalid.  Please try again."
 }
 
 
@@ -72,7 +73,7 @@ class NetworkManager {
                 if httpResponse.statusCode == 401{
                     do {
                         let decodedData = try decoder.decode(GenericErrorResponse.self, from: data!)
-                        print("401 server response: \(decodedData.message)")
+                        print("401 server message: \(decodedData.message)")
                         callback(nil, DMError.invalidCredentials)
                         return
                     } catch {
@@ -144,7 +145,7 @@ class NetworkManager {
         task.resume()
     }
     
-    func addStockWatch(authToken: String, count: Int , ticker: String, cost: Float, _ callback : @escaping (AddStockResponse?, DMError?) -> ()) {
+    func addStockWatch(authToken: String, count: Float , ticker: String, cost: Float, _ callback : @escaping (AddStockResponse?, DMError?) -> ()) {
         
         let usersURL = baseUrl + "addstockwatch"
         //{"ticker":"aapl","count": 0,"cost":0}
@@ -189,6 +190,22 @@ class NetworkManager {
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            //Check for 400 Bad Request if ticker is invalid
+            if let httpResponse = response as? HTTPURLResponse{
+                if httpResponse.statusCode == 400{
+                    do {
+                        let decodedData = try decoder.decode(AddStockErrorResponse.self, from: data!)
+                        print("200 server error: \(decodedData.error)")
+                        callback(nil, DMError.invalidTicker)
+                        return
+                    } catch {
+                        callback(nil, DMError.invalidResponse)
+                        print(error)
+                        return
+                    }
+                }
+            }
             
             do {
                 let decodedData = try decoder.decode(AddStockResponse.self, from: data!)
