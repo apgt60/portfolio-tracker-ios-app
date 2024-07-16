@@ -50,6 +50,12 @@ class LoginController: UIViewController {
         })
     }
     
+    @IBAction func createNewAccountButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "showRegister", sender: self)
+        }
+        
+    }
     
     func presentError(_ error : DMError){
         print(error.rawValue)
