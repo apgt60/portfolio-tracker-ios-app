@@ -14,6 +14,7 @@ enum DMError: String, Error {
     case invalidData = "The data received from the server was invalid. Please try again."
     case invalidCredentials = "The username and password is incorrect.  Please try again."
     case invalidTicker = "The ticker symbol entered is invalid.  Please try again."
+    case userNameTaken = "The User Name is already taken."
 }
 
 
@@ -23,6 +24,78 @@ class NetworkManager {
         //"https://portfolio-tracker-server-j0cb.onrender.com/api/"
     
     private init() {}
+    
+    func registerUser(username: String, password: String, firstName: String, lastName: String, _ callback : @escaping (RegisterUserResponse?, DMError?) -> ()) {
+        
+        let usersURL = baseUrl + "register"
+        let params = ["username": username, "password": password, "firstname": firstName, "lastname": lastName]
+        
+        let url = URL(string: usersURL)
+        if(url == nil){
+            callback(nil, DMError.invalidURL)
+            return
+        }
+        
+        //create the Request object using the url object
+        var request = URLRequest(url: url!)
+        //set http method as POST
+        request.httpMethod = "POST"
+
+        do {
+            // pass dictionary to data object and set it as request body
+            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            callback(nil, DMError.invalidURL)
+        }
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if(error != nil){
+                print("Error not nil: \(error!)")
+                callback(nil, DMError.unableToComplete)
+                return
+            }
+            
+            if(data == nil){
+                print("data is nil")
+                callback(nil, DMError.unableToComplete)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            //Check for 400 Bad Request if username is already taken
+            if let httpResponse = response as? HTTPURLResponse{
+                if httpResponse.statusCode == 400{
+                    do {
+                        let decodedData = try decoder.decode(GenericErrorResponse.self, from: data!)
+                        print("400 server message: \(decodedData.message)")
+                        callback(nil, DMError.userNameTaken)
+                        return
+                    } catch {
+                        callback(nil, DMError.invalidResponse)
+                        print(error)
+                        return
+                    }
+                }
+            }
+            
+            do {
+                let decodedData = try decoder.decode(RegisterUserResponse.self, from: data!)
+                callback(decodedData, nil)
+            } catch {
+                callback(nil, DMError.invalidResponse)
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
     
     func getUser(username: String, password: String, _ callback : @escaping (LoginResponse?, DMError?) -> ()) {
         

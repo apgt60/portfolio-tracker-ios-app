@@ -13,23 +13,23 @@
             <objects>
                 <viewController id="lwb-mt-QCx" userLabel="Login Controller" customClass="LoginController" customModule="Portfolio_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jZO-D1-2vh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mxp-qL-095">
-                                <rect key="frame" x="10" y="419" width="373" height="34"/>
+                                <rect key="frame" x="10" y="522" width="373" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PT Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xQd-9O-y4H">
-                                <rect key="frame" x="16" y="0.0" width="361" height="375"/>
+                                <rect key="frame" x="16" y="103" width="361" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="375" id="fIq-Kw-iRA"/>
                                     <constraint firstAttribute="width" constant="361" id="uPw-dr-c4Q"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbZ-ep-t1l">
-                                <rect key="frame" x="10" y="458" width="373" height="35"/>
+                                <rect key="frame" x="10" y="561" width="373" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log In">
                                     <backgroundConfiguration key="background">
@@ -42,18 +42,18 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name or Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ndt-HB-NCe">
-                                <rect key="frame" x="10" y="380" width="373" height="34"/>
+                                <rect key="frame" x="10" y="483" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New to Portfolio Tracker?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez2-5r-xdZ">
-                                <rect key="frame" x="62.666666666666657" y="523" width="267.66666666666674" height="25.666666666666629"/>
+                                <rect key="frame" x="62.666666666666657" y="626" width="267.66666666666674" height="25.666666666666629"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP4-6k-KQY">
-                                <rect key="frame" x="10" y="558.66666666666663" width="373" height="35"/>
+                                <rect key="frame" x="10" y="661.66666666666663" width="373" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Create a New Account!">
                                     <backgroundConfiguration key="background">
@@ -104,17 +104,17 @@
             <objects>
                 <viewController id="asl-Ah-P3E" customClass="HomeViewController" customModule="Portfolio_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Y6-8b-fqe">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Portfolio for First Last" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGS-4m-BFw">
-                                <rect key="frame" x="10" y="10" width="373" height="24"/>
+                                <rect key="frame" x="10" y="113" width="373" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s8e-Cz-tSh">
-                                <rect key="frame" x="5" y="44" width="383" height="793"/>
+                                <rect key="frame" x="5" y="147" width="383" height="666"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -154,33 +154,33 @@
             <objects>
                 <viewController id="Emz-AS-mS6" userLabel="Register Controller" customClass="RegisterViewController" customModule="Portfolio_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yjQ-ku-JgL">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PT Logo" translatesAutoresizingMaskIntoConstraints="NO" id="f3H-8S-1jp">
-                                <rect key="frame" x="16" y="11" width="361" height="375"/>
+                                <rect key="frame" x="16" y="-13" width="361" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="361" id="C3B-9O-oJN"/>
                                     <constraint firstAttribute="height" constant="375" id="aBS-kV-EO3"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ypC-hP-6EL">
-                                <rect key="frame" x="10" y="396" width="373" height="34"/>
+                                <rect key="frame" x="10" y="372" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-TC-6Pv">
-                                <rect key="frame" x="10" y="445" width="373" height="34"/>
+                                <rect key="frame" x="10" y="421" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password (6 to 15 characters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EyB-Zs-S4g">
-                                <rect key="frame" x="10" y="494" width="373" height="34"/>
+                                <rect key="frame" x="10" y="470" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBD-nZ-LX2">
-                                <rect key="frame" x="10" y="568" width="373" height="35"/>
+                                <rect key="frame" x="10" y="544" width="373" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Create Account">
                                     <backgroundConfiguration key="background">
@@ -232,17 +232,17 @@
             <objects>
                 <viewController id="Bcz-xT-bpn" userLabel="Welcome Controller" customClass="WelcomeViewController" customModule="Portfolio_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tSY-kI-X6T">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Portfolio Tracker.  Please log in." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r4-c7-7GH">
-                                <rect key="frame" x="10" y="60.000000000000007" width="332.33333333333331" height="20.333333333333336"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Portfolio Tracker &lt;username&gt;.  Please log in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r4-c7-7GH">
+                                <rect key="frame" x="10" y="163" width="367" height="98"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFg-6o-yBg">
-                                <rect key="frame" x="132.66666666666666" y="388.66666666666669" width="127.99999999999997" height="65"/>
+                                <rect key="frame" x="132.66666666666666" y="393.66666666666669" width="127.99999999999997" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="762-1i-DFv"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Mhq-bj-h0J"/>
@@ -272,7 +272,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="HMW-gU-qCF"/>
                     <connections>
-                        <segue destination="lwb-mt-QCx" kind="show" identifier="showLogin" id="ycx-m7-qpd"/>
+                        <outlet property="welcomeMessageText" destination="9r4-c7-7GH" id="QMU-ca-5Ra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRw-Rs-9xG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -463,10 +463,6 @@
             <point key="canvasLocation" x="820.61068702290072" y="-27.464788732394368"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="2bf-q8-F0g"/>
-        <segue reference="ycx-m7-qpd"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="PT Logo" width="132.66667175292969" height="46.666667938232422"/>
         <image name="UpArrow" width="33.333332061767578" height="33.333332061767578"/>

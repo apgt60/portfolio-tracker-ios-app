@@ -11,8 +11,11 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
+    @IBOutlet weak var welcomeMessageText: UILabel!
+    
     var networkManager = NetworkManager.shared
     var userManager = UserManager.shared
+    var receivedUserName = "<username>"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,10 @@ class WelcomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear called on WelcomeViewController")
         self.navigationController?.navigationBar.isHidden = true
+        welcomeMessageText.text = "Welcome to Portfolio Tracker \(self.receivedUserName).  Please log in."
     }
+    
+    
     
     @IBAction func backToLoginButtonPressed(_ sender: Any) {
         //go back to the initial login screen

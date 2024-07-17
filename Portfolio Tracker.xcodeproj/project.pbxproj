@@ -13,6 +13,9 @@
 		287FBFA52C47202C0054E113 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFA42C47202C0054E113 /* WelcomeViewController.swift */; };
 		287FBFA62C47202C0054E113 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFA42C47202C0054E113 /* WelcomeViewController.swift */; };
 		287FBFA72C47202C0054E113 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFA42C47202C0054E113 /* WelcomeViewController.swift */; };
+		287FBFA92C485CDA0054E113 /* RegisterUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFA82C485CDA0054E113 /* RegisterUserResponse.swift */; };
+		287FBFAA2C485CDA0054E113 /* RegisterUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFA82C485CDA0054E113 /* RegisterUserResponse.swift */; };
+		287FBFAB2C485CDA0054E113 /* RegisterUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFA82C485CDA0054E113 /* RegisterUserResponse.swift */; };
 		28CEDE7C2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
 		28CEDE7D2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
 		28CEDE7E2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
@@ -78,6 +81,7 @@
 /* Begin PBXFileReference section */
 		287FBFA02C4708970054E113 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		287FBFA42C47202C0054E113 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		287FBFA82C485CDA0054E113 /* RegisterUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserResponse.swift; sourceTree = "<group>"; };
 		28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatchDetailViewController.swift; sourceTree = "<group>"; };
 		28E60AB12B8F7E0E008BBC82 /* Portfolio Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portfolio Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E60AB42B8F7E0E008BBC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				28E60AEB2B8F87B0008BBC82 /* LocalUser.swift */,
 				28E60AFD2B90DECD008BBC82 /* StockWatch.swift */,
 				28E60B052B965F87008BBC82 /* AddStockResponse.swift */,
+				287FBFA82C485CDA0054E113 /* RegisterUserResponse.swift */,
 				28FC8EA92C2B3CEA004869C6 /* LoginResponse.swift */,
 				28FC8EAD2C2B653E004869C6 /* GenericErrorResponse.swift */,
 				28FC8EB12C2B6F77004869C6 /* AddStockErrorResponse.swift */,
@@ -376,6 +381,7 @@
 				28E60AEC2B8F87B0008BBC82 /* LocalUser.swift in Sources */,
 				287FBFA52C47202C0054E113 /* WelcomeViewController.swift in Sources */,
 				28FC8EAE2C2B653E004869C6 /* GenericErrorResponse.swift in Sources */,
+				287FBFA92C485CDA0054E113 /* RegisterUserResponse.swift in Sources */,
 				28E60B022B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
 				28E60B062B965F87008BBC82 /* AddStockResponse.swift in Sources */,
 				28FC8EB22C2B6F77004869C6 /* AddStockErrorResponse.swift in Sources */,
@@ -392,6 +398,7 @@
 			files = (
 				28E60AF82B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
 				28E60AF22B90B508008BBC82 /* HomeViewController.swift in Sources */,
+				287FBFAA2C485CDA0054E113 /* RegisterUserResponse.swift in Sources */,
 				287FBFA22C4708970054E113 /* RegisterViewController.swift in Sources */,
 				28FC8EB32C2B6F77004869C6 /* AddStockErrorResponse.swift in Sources */,
 				28CEDE7D2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */,
@@ -411,6 +418,7 @@
 			files = (
 				28CEDE7E2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */,
 				28E60AF32B90B508008BBC82 /* HomeViewController.swift in Sources */,
+				287FBFAB2C485CDA0054E113 /* RegisterUserResponse.swift in Sources */,
 				28FC8EAC2C2B3CEA004869C6 /* LoginResponse.swift in Sources */,
 				28E60ADB2B8F7E11008BBC82 /* Stock_TrackerUITestsLaunchTests.swift in Sources */,
 				28E60AD92B8F7E11008BBC82 /* Stock_TrackerUITests.swift in Sources */,
