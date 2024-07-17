@@ -24,9 +24,16 @@ class RegisterViewController: UIViewController {
         passwordText.isSecureTextEntry = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear called on RegisterViewController")
+        self.navigationController?.navigationBar.isHidden = false
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
     override func viewIsAppearing(_ animated: Bool) {
         print("viewIsAppearing called on RegisterController")
-        passwordText.text = ""
     }
     
     @IBAction func registerButtonPressed(_ sender: Any) {

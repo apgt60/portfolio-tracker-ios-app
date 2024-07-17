@@ -75,6 +75,12 @@ class HomeViewController: UIViewController, StockPositionCellDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear called on HomeViewController")
+        
+        self.navigationController?.navigationBar.isHidden = false
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Logout"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
     override func viewIsAppearing(_ animated: Bool) {
