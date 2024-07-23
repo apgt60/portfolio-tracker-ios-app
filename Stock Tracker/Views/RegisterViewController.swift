@@ -17,11 +17,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         passwordText.isSecureTextEntry = true
+        confirmPassword.isSecureTextEntry = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +48,10 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerButtonPressed(_ sender: Any) {
+        
+        if(passwordText.text != confirmPassword.text){
+            self.presentError(DMError.passwordMismatch)
+        }
         
         networkManager.registerUser(username:userNameText.text!, password: passwordText.text!,firstName: "", lastName: "", {(registerUserResponse: RegisterUserResponse?, error: DMError?) ->  () in
             if let error {

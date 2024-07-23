@@ -15,6 +15,7 @@ enum DMError: String, Error {
     case invalidCredentials = "The username and password is incorrect.  Please try again."
     case invalidTicker = "The ticker symbol entered is invalid.  Please try again."
     case userNameTaken = "The User Name is already taken."
+    case passwordMismatch = "Passwords do not match.  Please try again."
 }
 
 
