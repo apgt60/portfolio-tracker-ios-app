@@ -255,19 +255,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Portfolio Tracker &lt;Firstname&gt;.  Please log in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r4-c7-7GH">
-                                <rect key="frame" x="10" y="163" width="367" height="98"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFg-6o-yBg">
-                                <rect key="frame" x="132.66666666666666" y="393.66666666666669" width="127.99999999999997" height="65"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PT Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gP0-a1-qCv">
+                                <rect key="frame" x="10" y="113" width="373" height="281"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="762-1i-DFv"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Mhq-bj-h0J"/>
-                                    <constraint firstAttribute="width" constant="128" id="xVt-3c-jlL"/>
+                                    <constraint firstAttribute="width" secondItem="gP0-a1-qCv" secondAttribute="height" multiplier="361:272" id="tys-Zz-5sD"/>
                                 </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFg-6o-yBg">
+                                <rect key="frame" x="10" y="519.33333333333337" width="373" height="28.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back to Login">
                                     <backgroundConfiguration key="background">
@@ -280,14 +275,33 @@
                                     <action selector="backToLoginButtonPressed:" destination="Bcz-xT-bpn" eventType="touchUpInside" id="XpH-vZ-aJe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Firstname&gt;.  Please log in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r4-c7-7GH">
+                                <rect key="frame" x="92.000000000000014" y="439" width="209.33333333333337" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Portfolio Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUV-Lk-ciR">
+                                <rect key="frame" x="86.666666666666686" y="409" width="220" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TWe-q9-OPz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9r4-c7-7GH" firstAttribute="top" secondItem="TWe-q9-OPz" secondAttribute="top" constant="60" id="BdL-S6-rhi"/>
-                            <constraint firstItem="9r4-c7-7GH" firstAttribute="leading" secondItem="TWe-q9-OPz" secondAttribute="leading" constant="10" id="Nih-eZ-JZy"/>
-                            <constraint firstItem="WFg-6o-yBg" firstAttribute="centerY" secondItem="tSY-kI-X6T" secondAttribute="centerY" id="cHX-r9-XMB"/>
-                            <constraint firstItem="WFg-6o-yBg" firstAttribute="centerX" secondItem="tSY-kI-X6T" secondAttribute="centerX" id="ui5-aV-a6U"/>
+                            <constraint firstItem="cUV-Lk-ciR" firstAttribute="centerX" secondItem="tSY-kI-X6T" secondAttribute="centerX" id="0jF-iK-1kV"/>
+                            <constraint firstItem="TWe-q9-OPz" firstAttribute="trailing" secondItem="WFg-6o-yBg" secondAttribute="trailing" constant="10" id="1sc-7r-4e3"/>
+                            <constraint firstItem="cUV-Lk-ciR" firstAttribute="top" secondItem="gP0-a1-qCv" secondAttribute="bottom" constant="15" id="NDH-xx-6DE"/>
+                            <constraint firstItem="gP0-a1-qCv" firstAttribute="centerX" secondItem="tSY-kI-X6T" secondAttribute="centerX" id="U0B-Dp-ahj"/>
+                            <constraint firstItem="gP0-a1-qCv" firstAttribute="leading" secondItem="TWe-q9-OPz" secondAttribute="leading" constant="10" id="aBv-gi-rhq"/>
+                            <constraint firstItem="WFg-6o-yBg" firstAttribute="centerX" secondItem="tSY-kI-X6T" secondAttribute="centerX" id="bF6-zY-DvP"/>
+                            <constraint firstItem="gP0-a1-qCv" firstAttribute="top" secondItem="TWe-q9-OPz" secondAttribute="top" constant="10" id="dKH-NA-EPv"/>
+                            <constraint firstItem="WFg-6o-yBg" firstAttribute="top" secondItem="9r4-c7-7GH" secondAttribute="bottom" constant="60" id="gaG-9f-a4c"/>
+                            <constraint firstItem="9r4-c7-7GH" firstAttribute="top" secondItem="cUV-Lk-ciR" secondAttribute="bottom" constant="10" id="gb6-9G-GOb"/>
+                            <constraint firstItem="WFg-6o-yBg" firstAttribute="leading" secondItem="TWe-q9-OPz" secondAttribute="leading" constant="10" id="p4x-28-vIC"/>
+                            <constraint firstItem="9r4-c7-7GH" firstAttribute="centerX" secondItem="tSY-kI-X6T" secondAttribute="centerX" id="u4V-J9-v8u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HMW-gU-qCF"/>

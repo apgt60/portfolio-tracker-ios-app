@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear called on WelcomeViewController")
         self.navigationController?.navigationBar.isHidden = true
-        welcomeMessageText.text = "Welcome to Portfolio Tracker \(self.receivedUserFullname).  Please log in."
+        welcomeMessageText.text = "\(self.receivedUserFullname).  Please log in."
     }
     
     
