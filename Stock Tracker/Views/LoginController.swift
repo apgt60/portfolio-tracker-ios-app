@@ -12,7 +12,7 @@ class LoginController: UIViewController {
     var networkManager = NetworkManager.shared
     var userManager = UserManager.shared
     
-    @IBOutlet weak var usernameText: UITextField!
+    @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class LoginController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        networkManager.getUser(username:usernameText.text!, password: passwordText.text!, {(loginResponse: LoginResponse?, error: DMError?) ->  () in
+        networkManager.getUser(email:emailText.text!, password: passwordText.text!, {(loginResponse: LoginResponse?, error: DMError?) ->  () in
             if let error {
                 DispatchQueue.main.async {
                     self.presentError(error)
@@ -35,7 +35,7 @@ class LoginController: UIViewController {
             }
             
             if let loginResponse {
-                print("Received user: \(loginResponse.user.username) with id: \(loginResponse.user.guid) and token: \(loginResponse.token.prefix(5))...")
+                print("Received user: \(loginResponse.user.email) with id: \(loginResponse.user.guid) and token: \(loginResponse.token.prefix(5))...")
                 self.userManager.localUser = loginResponse.user
                 self.userManager.authToken = loginResponse.token
             }

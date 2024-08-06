@@ -16,10 +16,10 @@ struct LoginResponse: Codable {
  {
  "token": "eyJhbGc...xFI_RlVmiDyorbk",
  "user": {
-     "guid": "2e152be8-0518-40a0-9084-ea5764b98ec6",
-     "username": "userH002",
-     "firstname": "Testy",
-     "lastname": "Tester",
-     "created": "2024-06-24T20:06:55.060Z"
+    "guid": "a54e74cd-97ea-4e14-bd4b-7c6b0eaa8223",
+    "email": "email3@test.edu",
+    "firstname": "Userf",
+    "lastname": "Userl",
+    "created": "2024-08-06T06:13:26.422Z"
  }
  */

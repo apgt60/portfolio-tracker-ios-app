@@ -12,18 +12,19 @@ class RegisterViewController: UIViewController {
     
     var networkManager = NetworkManager.shared
     
-    var userName: String?
+    var userEmail: String?
     
     @IBOutlet weak var emailText: UITextField!
-    @IBOutlet weak var userNameText: UITextField!
+    @IBOutlet weak var firstNameText: UITextField!
+    @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
-    @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var confirmPasswordText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         passwordText.isSecureTextEntry = true
-        confirmPassword.isSecureTextEntry = true
+        confirmPasswordText.isSecureTextEntry = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,17 +44,17 @@ class RegisterViewController: UIViewController {
         let secondViewController = segue.destination as! WelcomeViewController
         
         // Set a variable in the second view controller with the String to pass
-        secondViewController.receivedUserName = self.userName ?? "<username>"
+        secondViewController.receivedUserEmail = self.userEmail ?? "<userEmail>"
         
     }
     
     @IBAction func registerButtonPressed(_ sender: Any) {
         
-        if(passwordText.text != confirmPassword.text){
+        if(passwordText.text != confirmPasswordText.text){
             self.presentError(DMError.passwordMismatch)
         }
         
-        networkManager.registerUser(username:userNameText.text!, password: passwordText.text!,firstName: "", lastName: "", {(registerUserResponse: RegisterUserResponse?, error: DMError?) ->  () in
+        networkManager.registerUser(email:emailText.text!, password: passwordText.text!,firstName: firstNameText.text!, lastName: lastNameText.text!, {(registerUserResponse: RegisterUserResponse?, error: DMError?) ->  () in
             if let error {
                 DispatchQueue.main.async {
                     self.presentError(error)
@@ -61,8 +62,8 @@ class RegisterViewController: UIViewController {
             }
             
             if let registerUserResponse {
-                print("Created new user: \(registerUserResponse.username)")
-                self.userName = registerUserResponse.username
+                print("Created new user: \(registerUserResponse.email)")
+                self.userEmail = registerUserResponse.email
             }
             
             DispatchQueue.main.async {
@@ -76,9 +77,9 @@ class RegisterViewController: UIViewController {
         print(error.rawValue)
         let alert = UIAlertController(title: "Registration Error", message: error.rawValue, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            self.userNameText.text = ""
             self.emailText.text = ""
             self.passwordText.text = ""
+            self.confirmPasswordText.text = ""
         }))
         present(alert, animated: true, completion: nil)
     }

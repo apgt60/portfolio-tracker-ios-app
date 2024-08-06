@@ -8,8 +8,8 @@
 import Foundation
 
 struct RegisterUserResponse: Codable {
-    let username: String
+    let email: String
     let success: Bool
 }
 
-//{"username": "userT1000tn","success": false}
+//{"email": "userT1000tn@email.edu","success": false}

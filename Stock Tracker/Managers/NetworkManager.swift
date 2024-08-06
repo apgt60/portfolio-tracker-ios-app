@@ -12,9 +12,9 @@ enum DMError: String, Error {
     case unableToComplete = "Unable to complete your request. Please check your internet connection."
     case invalidResponse = "Invalid response from the server. Please try again."
     case invalidData = "The data received from the server was invalid. Please try again."
-    case invalidCredentials = "The username and password is incorrect.  Please try again."
+    case invalidCredentials = "The email and password is incorrect.  Please try again."
     case invalidTicker = "The ticker symbol entered is invalid.  Please try again."
-    case userNameTaken = "The User Name is already taken."
+    case emailTaken = "An account with the email already exists."
     case passwordMismatch = "Passwords do not match.  Please try again."
 }
 
@@ -26,10 +26,10 @@ class NetworkManager {
     
     private init() {}
     
-    func registerUser(username: String, password: String, firstName: String, lastName: String, _ callback : @escaping (RegisterUserResponse?, DMError?) -> ()) {
+    func registerUser(email: String, password: String, firstName: String, lastName: String, _ callback : @escaping (RegisterUserResponse?, DMError?) -> ()) {
         
         let usersURL = baseUrl + "register"
-        let params = ["username": username, "password": password, "firstname": firstName, "lastname": lastName]
+        let params = ["email": email, "password": password, "firstname": firstName, "lastname": lastName]
         
         let url = URL(string: usersURL)
         if(url == nil){
@@ -70,13 +70,13 @@ class NetworkManager {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
-            //Check for 400 Bad Request if username is already taken
+            //Check for 400 Bad Request if email is already taken
             if let httpResponse = response as? HTTPURLResponse{
                 if httpResponse.statusCode == 400{
                     do {
                         let decodedData = try decoder.decode(GenericErrorResponse.self, from: data!)
                         print("400 server message: \(decodedData.message)")
-                        callback(nil, DMError.userNameTaken)
+                        callback(nil, DMError.emailTaken)
                         return
                     } catch {
                         callback(nil, DMError.invalidResponse)
@@ -98,10 +98,10 @@ class NetworkManager {
         task.resume()
     }
     
-    func getUser(username: String, password: String, _ callback : @escaping (LoginResponse?, DMError?) -> ()) {
+    func getUser(email: String, password: String, _ callback : @escaping (LoginResponse?, DMError?) -> ()) {
         
         let usersURL = baseUrl + "login"
-        let params = ["username": username, "password": password]
+        let params = ["email": email, "password": password]
         
         let url = URL(string: usersURL)
         if(url == nil){
