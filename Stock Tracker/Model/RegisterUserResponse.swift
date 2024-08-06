@@ -9,6 +9,7 @@ import Foundation
 
 struct RegisterUserResponse: Codable {
     let email: String
+    let name: String
     let success: Bool
 }
 

@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     var networkManager = NetworkManager.shared
     
     var userEmail: String?
+    var userFullname: String?
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var firstNameText: UITextField!
@@ -44,7 +45,7 @@ class RegisterViewController: UIViewController {
         let secondViewController = segue.destination as! WelcomeViewController
         
         // Set a variable in the second view controller with the String to pass
-        secondViewController.receivedUserEmail = self.userEmail ?? "<userEmail>"
+        secondViewController.receivedUserFullname = self.userFullname ?? "<userFullname>"
         
     }
     
@@ -64,6 +65,7 @@ class RegisterViewController: UIViewController {
             if let registerUserResponse {
                 print("Created new user: \(registerUserResponse.email)")
                 self.userEmail = registerUserResponse.email
+                self.userFullname = registerUserResponse.name
             }
             
             DispatchQueue.main.async {
