@@ -9,8 +9,16 @@ import Foundation
 
 struct AddStockResponse: Codable {
     let ticker: String
+    let count: Int
     let cost: Float
     let success: Bool
 }
 
-//{"ticker": "aapl","cost": 0,"success": true}
+/*
+ {
+     "ticker": "AAPL",
+     "count": 10,
+     "cost": 212,
+     "success": true
+ }
+ */

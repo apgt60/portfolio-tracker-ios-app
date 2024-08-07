@@ -45,10 +45,7 @@ class AddStockViewController: UIViewController {
             DispatchQueue.main.async {
                 //self.tableView.reloadData()
             }
-            
-//            DispatchQueue.main.async {
-//                self.performSegue(withIdentifier: "showHome", sender: self)
-//            }
+
         })
     }
     
