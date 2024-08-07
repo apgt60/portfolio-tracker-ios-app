@@ -9,6 +9,9 @@ import UIKit
 
 class StockWatchDetailViewController : UIViewController {
     
+    var networkManager = NetworkManager.shared
+    var userManager = UserManager.shared
+    
     var parentViewContoller : HomeViewController?
     
     @IBOutlet weak var stockImage: UIImageView!
@@ -55,7 +58,63 @@ class StockWatchDetailViewController : UIViewController {
             self.gainLossPercentLabel.textColor = UIColor.red
             self.totalGainLossLabel.text = "Total Loss: $\(stockWatch!.totalGainLoss)"
         }
-        
+    }
+    
+    
+    @IBAction func removeStockButtonPressed(_ sender: Any) {
+        presentRemoveConfirmation()
+    }
+    
+    func presentRemoveConfirmation(){
+        let alert = UIAlertController(title: "Please Confirm", message: "Are you sure you want stop watching this stock?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {_ in
+            //delete from server and reload data
+            self.performDelete()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: {_ in
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func performDelete(){
+        networkManager.removeStockWatch(authToken: self.userManager.authToken!, uuid: self.parentViewContoller!.currentDetailStockWatch!.guid, {(removeStockResponse: RemoveStockResponse?, error: DMError?) -> () in
+            if let error {
+                //TODO: Handle delete error
+            }
+            
+            if let removeStockResponse {
+                print("Sucessfully removed stock watch")
+                //reload data for parent
+                self.parentViewContoller?.loadData()
+                //dismiss current view
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true)
+                }
+            }
+        })
+    }
+    
+    func performAdd(){
+        networkManager.addStockWatch(authToken:self.userManager.authToken!, count: 1, ticker: "tsla", cost: 10.0, {(addStockResponse: AddStockResponse?, error: DMError?) ->  () in
+//            if let error {
+//                DispatchQueue.main.async {
+//                    self.presentError(error)
+//                }
+//            }
+            
+            if let addStockResponse {
+                print("Sucessfully added \(addStockResponse.ticker) to stock list")
+//                DispatchQueue.main.async {
+//                    self.parentViewContoller?.loadData()
+//                    self.dismiss(animated: true)
+//                }
+            }
+            
+            DispatchQueue.main.async {
+                //self.tableView.reloadData()
+            }
+
+        })
     }
     
 }

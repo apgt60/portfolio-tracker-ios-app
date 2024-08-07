@@ -385,9 +385,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWR-ee-gf8">
+                                <rect key="frame" x="10" y="732" width="373" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Remove Stock Watch">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="removeStockButtonPressed:" destination="sbK-pQ-Yuq" eventType="touchUpInside" id="QnD-5k-3v8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QDu-5A-fHh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QDu-5A-fHh" firstAttribute="bottom" secondItem="jWR-ee-gf8" secondAttribute="bottom" constant="75" id="AO3-dx-lLp"/>
+                            <constraint firstItem="QDu-5A-fHh" firstAttribute="trailing" secondItem="jWR-ee-gf8" secondAttribute="trailing" constant="10" id="Eep-oU-pxz"/>
+                            <constraint firstItem="jWR-ee-gf8" firstAttribute="centerX" secondItem="ptU-L4-NwU" secondAttribute="centerX" id="Sda-D4-MpC"/>
+                            <constraint firstItem="jWR-ee-gf8" firstAttribute="leading" secondItem="QDu-5A-fHh" secondAttribute="leading" constant="10" id="p7t-kb-OUe"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="currValueLabel" destination="nve-08-x5P" id="xXO-2V-anW"/>

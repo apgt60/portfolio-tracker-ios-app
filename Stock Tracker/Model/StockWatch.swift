@@ -20,6 +20,7 @@ struct StockWatch: Codable {
     let count: Float
     let cost: Float
     let id: Int
+    let guid: String
     let quote: Float
     let gainLoss: Float
     let totalAmount: Float
@@ -29,33 +30,34 @@ struct StockWatch: Codable {
 
 /*
     [
-         {
-             "ticker": "WMT",
-             "logo": "https://eodhd.com/img/logos/US/wmt.png",
-             "name": "Walmart Inc",
-             "count": 10,
-             "cost": 55,
-             "id": 32,
-             "quote": 60.71,
-             "gainLoss": 10.4,
-             "altLogo": "https://eodhd.com/img/logos/US/WMT.png",
-             "totalAmount": 607.1,
-             "totalCost": 550,
-             "totalGainLoss": 57.1
-         },
-         {
-             "ticker": "KO",
-             "logo": "https://eodhd.com/img/logos/US/ko.png",
-             "name": "Coca-Cola Co",
-             "count": 10,
-             "cost": 65,
-             "id": 33,
-             "quote": 60.625,
-             "gainLoss": -6.7,
-             "altLogo": "https://eodhd.com/img/logos/US/KO.png",
-             "totalAmount": 606.25,
-             "totalCost": 650,
-             "totalGainLoss": -43.75
-         }
+ "ticker": "HD",
+            "logo": "https://eodhd.com/img/logos/US/hd.png",
+            "name": "Home Depot Inc",
+            "count": 100,
+            "cost": 150,
+            "id": 55,
+            "guid": "ee6682f1-e46b-403e-9caa-0f49561100bf",
+            "quote": 342.4,
+            "gainLoss": 128.3,
+            "altLogo": "https://eodhd.com/img/logos/US/HD.png",
+            "totalAmount": 34240,
+            "totalCost": 15000,
+            "totalGainLoss": 19240
+        },
+        {
+            "ticker": "AAPL",
+            "logo": "https://eodhd.com/img/logos/US/aapl.png",
+            "name": "Apple Inc",
+            "count": 10,
+            "cost": 212,
+            "id": 57,
+            "guid": "be8ade7f-70c2-446c-b6f1-360dbea1e2b4",
+            "quote": 209.82,
+            "gainLoss": -1,
+            "altLogo": "https://eodhd.com/img/logos/US/AAPL.png",
+            "totalAmount": 2098.2,
+            "totalCost": 2120,
+            "totalGainLoss": -21.8
+        }
      ]
  */

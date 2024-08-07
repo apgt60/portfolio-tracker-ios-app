@@ -293,6 +293,70 @@ class NetworkManager {
         task.resume()
     }
     
+    func removeStockWatch(authToken: String, uuid: String, _ callback : @escaping (RemoveStockResponse?, DMError?) -> ()) {
+        
+        let usersURL = baseUrl + "removewatch/\(uuid)"
+        
+        let url = URL(string: usersURL)
+        if(url == nil){
+            callback(nil, DMError.invalidURL)
+            return
+        }
+        
+        //create the Request object using the url object
+        var request = URLRequest(url: url!)
+        //set http method as DELETE
+        request.httpMethod = "DELETE"
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(authToken, forHTTPHeaderField: "authtoken")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if(error != nil){
+                print("Error not nil: \(error!)")
+                callback(nil, DMError.unableToComplete)
+                return
+            }
+            
+            if(data == nil){
+                print("data is nil")
+                callback(nil, DMError.unableToComplete)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            //Check for 400 Bad Request if ticker is invalid
+            if let httpResponse = response as? HTTPURLResponse{
+                if httpResponse.statusCode == 400{
+                    do {
+                        let decodedData = try decoder.decode(AddStockErrorResponse.self, from: data!)
+                        print("200 server error: \(decodedData.error)")
+                        callback(nil, DMError.invalidTicker)
+                        return
+                    } catch {
+                        callback(nil, DMError.invalidResponse)
+                        print(error)
+                        return
+                    }
+                }
+            }
+            
+            do {
+                let decodedData = try decoder.decode(RemoveStockResponse.self, from: data!)
+                callback(decodedData, nil)
+            } catch {
+                callback(nil, DMError.invalidResponse)
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
+    
     func getImageData(imageUrl: String, _ callback : @escaping (Data?, DMError?) -> ()) {
         
         let url = URL(string: imageUrl)
