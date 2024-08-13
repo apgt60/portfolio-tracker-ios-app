@@ -184,7 +184,7 @@ class NetworkManager {
         //create the Request object using the url object
         var request = URLRequest(url: url!)
         //set http method as GET
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
 
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -233,8 +233,8 @@ class NetworkManager {
         
         //create the Request object using the url object
         var request = URLRequest(url: url!)
-        //set http method as POST
-        request.httpMethod = "POST"
+        //set http method as PUT
+        request.httpMethod = "PUT"
 
         do {
             // pass dictionary to data object and set it as request body
