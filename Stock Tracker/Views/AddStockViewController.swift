@@ -17,6 +17,9 @@ class AddStockViewController: UIViewController {
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
     
+    
+    @IBOutlet weak var stockSearchBar: UISearchBar!
+    
     @IBAction func addStockButtonPressed(_ sender: UIButton) {
         print("adding \(quantityField.text!) shares of \(stockSymbolField.text!) with price of \(priceField.text!) to list")
         //authToken, count: Int , ticker: String, cost: Float
@@ -27,26 +30,7 @@ class AddStockViewController: UIViewController {
             return
         }
         
-        networkManager.addStockWatch(authToken:self.userManager.authToken!, count: quantity!, ticker: stockSymbolField.text!, cost: price!, {(addStockResponse: AddStockResponse?, error: DMError?) ->  () in
-            if let error {
-                DispatchQueue.main.async {
-                    self.presentError(error)
-                }
-            }
-            
-            if let addStockResponse {
-                print("Sucessfully added \(addStockResponse.ticker) to stock list")
-                DispatchQueue.main.async {
-                    self.parentViewContoller?.loadData()
-                    self.dismiss(animated: true)
-                }
-            }
-            
-            DispatchQueue.main.async {
-                //self.tableView.reloadData()
-            }
-
-        })
+        
     }
     
     func presentError(_ error : DMError){
@@ -64,8 +48,12 @@ class AddStockViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+//        stockSearchBar.barStyle = .black
+//        stockSearchBar.placeholder = "Ticker Symbol Search"
+//        stockSearchBar.sizeToFit()
+//        stockSearchBar.isTranslucent = true
+//        stockSearchBar.delegate = self
     }
     
 
@@ -79,4 +67,35 @@ class AddStockViewController: UIViewController {
     }
     */
 
+}
+
+extension AddStockViewController : UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("\(searchText)")
+        
+        networkManager.searchTicker(authToken:self.userManager.authToken!, searchText: searchText,  {(searchResults: [StockSearchResult]?, error: DMError?) ->  () in
+            if let error {
+                DispatchQueue.main.async {
+                    self.presentError(error)
+                }
+            }
+            
+            if let searchResults {
+                print("Found \(searchResults.count) results for searchText: \(searchText)")
+                
+                DispatchQueue.main.async {
+                    if(searchResults.count == 1){
+                        self.stockSymbolField.text = searchResults[0].ticker
+                    }
+                }
+            }
+            
+            DispatchQueue.main.async {
+                //self.tableView.reloadData()
+            }
+
+        })
+    }
+    
 }

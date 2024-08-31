@@ -19,6 +19,12 @@
 		287FBFAD2C64292D0054E113 /* RemoveStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFAC2C64292D0054E113 /* RemoveStockResponse.swift */; };
 		287FBFAE2C64292D0054E113 /* RemoveStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFAC2C64292D0054E113 /* RemoveStockResponse.swift */; };
 		287FBFAF2C64292D0054E113 /* RemoveStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FBFAC2C64292D0054E113 /* RemoveStockResponse.swift */; };
+		28A431992C83AD4D0058D31E /* StockSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A431982C83AD4D0058D31E /* StockSearchResponse.swift */; };
+		28A4319A2C83AD4D0058D31E /* StockSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A431982C83AD4D0058D31E /* StockSearchResponse.swift */; };
+		28A4319B2C83AD4D0058D31E /* StockSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A431982C83AD4D0058D31E /* StockSearchResponse.swift */; };
+		28A4319D2C83AF300058D31E /* StockSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4319C2C83AF300058D31E /* StockSearchResult.swift */; };
+		28A4319E2C83AF300058D31E /* StockSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4319C2C83AF300058D31E /* StockSearchResult.swift */; };
+		28A4319F2C83AF300058D31E /* StockSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4319C2C83AF300058D31E /* StockSearchResult.swift */; };
 		28CEDE7C2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
 		28CEDE7D2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
 		28CEDE7E2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
@@ -86,6 +92,8 @@
 		287FBFA42C47202C0054E113 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		287FBFA82C485CDA0054E113 /* RegisterUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserResponse.swift; sourceTree = "<group>"; };
 		287FBFAC2C64292D0054E113 /* RemoveStockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveStockResponse.swift; sourceTree = "<group>"; };
+		28A431982C83AD4D0058D31E /* StockSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchResponse.swift; sourceTree = "<group>"; };
+		28A4319C2C83AF300058D31E /* StockSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchResult.swift; sourceTree = "<group>"; };
 		28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatchDetailViewController.swift; sourceTree = "<group>"; };
 		28E60AB12B8F7E0E008BBC82 /* Portfolio Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portfolio Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E60AB42B8F7E0E008BBC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +223,8 @@
 				28FC8EA92C2B3CEA004869C6 /* LoginResponse.swift */,
 				28FC8EAD2C2B653E004869C6 /* GenericErrorResponse.swift */,
 				28FC8EB12C2B6F77004869C6 /* AddStockErrorResponse.swift */,
+				28A431982C83AD4D0058D31E /* StockSearchResponse.swift */,
+				28A4319C2C83AF300058D31E /* StockSearchResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,9 +396,11 @@
 				28E60AB52B8F7E0E008BBC82 /* AppDelegate.swift in Sources */,
 				28E60AEC2B8F87B0008BBC82 /* LocalUser.swift in Sources */,
 				287FBFA52C47202C0054E113 /* WelcomeViewController.swift in Sources */,
+				28A431992C83AD4D0058D31E /* StockSearchResponse.swift in Sources */,
 				28FC8EAE2C2B653E004869C6 /* GenericErrorResponse.swift in Sources */,
 				287FBFA92C485CDA0054E113 /* RegisterUserResponse.swift in Sources */,
 				28E60B022B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
+				28A4319D2C83AF300058D31E /* StockSearchResult.swift in Sources */,
 				28E60B062B965F87008BBC82 /* AddStockResponse.swift in Sources */,
 				28FC8EB22C2B6F77004869C6 /* AddStockErrorResponse.swift in Sources */,
 				287FBFA12C4708970054E113 /* RegisterViewController.swift in Sources */,
@@ -407,11 +419,13 @@
 				287FBFAA2C485CDA0054E113 /* RegisterUserResponse.swift in Sources */,
 				287FBFA22C4708970054E113 /* RegisterViewController.swift in Sources */,
 				28FC8EB32C2B6F77004869C6 /* AddStockErrorResponse.swift in Sources */,
+				28A4319A2C83AD4D0058D31E /* StockSearchResponse.swift in Sources */,
 				28CEDE7D2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */,
 				28FC8EAF2C2B653E004869C6 /* GenericErrorResponse.swift in Sources */,
 				287FBFAE2C64292D0054E113 /* RemoveStockResponse.swift in Sources */,
 				28E60AFF2B90DECD008BBC82 /* StockWatch.swift in Sources */,
 				28E60B072B965F87008BBC82 /* AddStockResponse.swift in Sources */,
+				28A4319E2C83AF300058D31E /* StockSearchResult.swift in Sources */,
 				28E60ACF2B8F7E11008BBC82 /* Stock_TrackerTests.swift in Sources */,
 				287FBFA62C47202C0054E113 /* WelcomeViewController.swift in Sources */,
 				28FC8EAB2C2B3CEA004869C6 /* LoginResponse.swift in Sources */,
@@ -428,6 +442,7 @@
 				287FBFAB2C485CDA0054E113 /* RegisterUserResponse.swift in Sources */,
 				28FC8EAC2C2B3CEA004869C6 /* LoginResponse.swift in Sources */,
 				28E60ADB2B8F7E11008BBC82 /* Stock_TrackerUITestsLaunchTests.swift in Sources */,
+				28A4319F2C83AF300058D31E /* StockSearchResult.swift in Sources */,
 				28E60AD92B8F7E11008BBC82 /* Stock_TrackerUITests.swift in Sources */,
 				28E60AF92B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
 				287FBFA72C47202C0054E113 /* WelcomeViewController.swift in Sources */,
@@ -436,6 +451,7 @@
 				287FBFAF2C64292D0054E113 /* RemoveStockResponse.swift in Sources */,
 				287FBFA32C4708970054E113 /* RegisterViewController.swift in Sources */,
 				28E60B042B9653E1008BBC82 /* AddStockViewController.swift in Sources */,
+				28A4319B2C83AD4D0058D31E /* StockSearchResponse.swift in Sources */,
 				28E60B082B965F87008BBC82 /* AddStockResponse.swift in Sources */,
 				28FC8EB02C2B653E004869C6 /* GenericErrorResponse.swift in Sources */,
 			);

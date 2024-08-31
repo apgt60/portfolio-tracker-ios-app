@@ -434,13 +434,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Stock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbo-6N-LPY">
-                                <rect key="frame" x="141" y="50" width="111.33333333333331" height="30"/>
+                                <rect key="frame" x="141" y="71" width="111.33333333333331" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Stock Symbol" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LTR-s2-Ctb">
-                                <rect key="frame" x="10" y="90" width="373" height="34"/>
+                                <rect key="frame" x="10" y="162" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
@@ -458,38 +458,52 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWX-yJ-IY3">
-                                <rect key="frame" x="10" y="134" width="373" height="34"/>
+                                <rect key="frame" x="10" y="206" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nzO-Lf-gCu">
-                                <rect key="frame" x="10" y="178" width="373" height="34"/>
+                                <rect key="frame" x="10" y="250" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Wn7-AF-LJo">
+                                <rect key="frame" x="0.0" y="111" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="50C-nC-18Y"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yJK-UC-0I2" id="E7u-Xb-rDj"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Ys-k2-kzS"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1Ys-k2-kzS" firstAttribute="trailing" secondItem="nzO-Lf-gCu" secondAttribute="trailing" constant="10" id="4Dp-di-omm"/>
                             <constraint firstItem="VWX-yJ-IY3" firstAttribute="top" secondItem="LTR-s2-Ctb" secondAttribute="bottom" constant="10" id="7qP-cr-cOQ"/>
+                            <constraint firstItem="Wn7-AF-LJo" firstAttribute="centerX" secondItem="gbo-6N-LPY" secondAttribute="centerX" id="Gkb-qW-fMV"/>
                             <constraint firstItem="LTR-s2-Ctb" firstAttribute="centerX" secondItem="8zi-xU-BO9" secondAttribute="centerX" id="Jkl-F1-EgZ"/>
                             <constraint firstItem="os3-sG-xD2" firstAttribute="centerY" secondItem="8zi-xU-BO9" secondAttribute="centerY" id="KLV-17-523"/>
+                            <constraint firstItem="Wn7-AF-LJo" firstAttribute="leading" secondItem="1Ys-k2-kzS" secondAttribute="leading" id="MWN-bX-KTX"/>
                             <constraint firstItem="gbo-6N-LPY" firstAttribute="centerX" secondItem="8zi-xU-BO9" secondAttribute="centerX" id="QmT-wk-YcQ"/>
                             <constraint firstItem="1Ys-k2-kzS" firstAttribute="trailing" secondItem="LTR-s2-Ctb" secondAttribute="trailing" constant="10" id="R5O-9H-dee"/>
                             <constraint firstItem="LTR-s2-Ctb" firstAttribute="leading" secondItem="1Ys-k2-kzS" secondAttribute="leading" constant="10" id="RIz-6g-tGX"/>
                             <constraint firstItem="nzO-Lf-gCu" firstAttribute="top" secondItem="VWX-yJ-IY3" secondAttribute="bottom" constant="10" id="T1n-2o-vw5"/>
+                            <constraint firstItem="Wn7-AF-LJo" firstAttribute="top" secondItem="gbo-6N-LPY" secondAttribute="bottom" constant="10" id="h98-JL-Wbz"/>
                             <constraint firstItem="nzO-Lf-gCu" firstAttribute="leading" secondItem="1Ys-k2-kzS" secondAttribute="leading" constant="10" id="jjg-FQ-1my"/>
                             <constraint firstItem="1Ys-k2-kzS" firstAttribute="trailing" secondItem="VWX-yJ-IY3" secondAttribute="trailing" constant="10" id="kHc-AJ-hTC"/>
-                            <constraint firstItem="gbo-6N-LPY" firstAttribute="top" secondItem="1Ys-k2-kzS" secondAttribute="top" constant="50" id="r24-34-CDf"/>
+                            <constraint firstItem="gbo-6N-LPY" firstAttribute="top" secondItem="1Ys-k2-kzS" secondAttribute="top" constant="71" id="r24-34-CDf"/>
                             <constraint firstItem="VWX-yJ-IY3" firstAttribute="leading" secondItem="1Ys-k2-kzS" secondAttribute="leading" constant="10" id="rP0-kt-Iza"/>
                             <constraint firstItem="os3-sG-xD2" firstAttribute="centerX" secondItem="8zi-xU-BO9" secondAttribute="centerX" id="wNi-x5-piv"/>
-                            <constraint firstItem="LTR-s2-Ctb" firstAttribute="top" secondItem="gbo-6N-LPY" secondAttribute="bottom" constant="10" id="y7Y-oD-q8K"/>
+                            <constraint firstItem="LTR-s2-Ctb" firstAttribute="top" secondItem="Wn7-AF-LJo" secondAttribute="bottom" constant="7" id="y7Y-oD-q8K"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="priceField" destination="VWX-yJ-IY3" id="YT4-Sr-exz"/>
                         <outlet property="quantityField" destination="nzO-Lf-gCu" id="rMg-jH-Pay"/>
+                        <outlet property="stockSearchBar" destination="Wn7-AF-LJo" id="8GK-fx-vSp"/>
                         <outlet property="stockSymbolField" destination="LTR-s2-Ctb" id="mUg-21-CpI"/>
                     </connections>
                 </viewController>
@@ -523,7 +537,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
