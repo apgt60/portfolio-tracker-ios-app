@@ -35,6 +35,6 @@ class StockPositionCell: UITableViewCell {
     
 }
 
-protocol StockPositionCellDelegate: class {
+protocol StockPositionCellDelegate: AnyObject {
     func didTapButtonInCell(_ cell: StockPositionCell)
 }
