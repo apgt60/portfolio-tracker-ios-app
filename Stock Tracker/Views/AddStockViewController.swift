@@ -7,18 +7,19 @@
 
 import UIKit
 
-class AddStockViewController: UIViewController {
+class AddStockViewController: UIViewController, TickerSearchResultCellDelegate {
     
     var networkManager = NetworkManager.shared
     var userManager = UserManager.shared
     var parentViewContoller : HomeViewController?
+    var tickerSearchResults : [StockSearchResult] = []
     
     @IBOutlet weak var stockSymbolField: UITextField!
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
     
-    
     @IBOutlet weak var stockSearchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func addStockButtonPressed(_ sender: UIButton) {
         print("adding \(quantityField.text!) shares of \(stockSymbolField.text!) with price of \(priceField.text!) to list")
@@ -49,11 +50,24 @@ class AddStockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        stockSearchBar.barStyle = .black
-//        stockSearchBar.placeholder = "Ticker Symbol Search"
-//        stockSearchBar.sizeToFit()
-//        stockSearchBar.isTranslucent = true
-//        stockSearchBar.delegate = self
+        
+        print("AddStockViewController viewDidLoad()")
+        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        title = ""
+        
+        let uiNib = UINib(nibName: "TickerSearchResultCellTableViewCell", bundle: nil)
+        
+        tableView.register(uiNib, forCellReuseIdentifier: "searchResultCellId")
+        
+        tableView.isHidden = true
+        
+    }
+    
+    func loadData(){
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
 
@@ -83,19 +97,86 @@ extension AddStockViewController : UISearchBarDelegate {
             
             if let searchResults {
                 print("Found \(searchResults.count) results for searchText: \(searchText)")
+                self.tickerSearchResults = searchResults
+                
                 
                 DispatchQueue.main.async {
-                    if(searchResults.count == 1){
-                        self.stockSymbolField.text = searchResults[0].ticker
-                    }
+                    self.tableView.isHidden = false
                 }
             }
             
             DispatchQueue.main.async {
-                //self.tableView.reloadData()
+                self.tableView.reloadData()
             }
 
         })
     }
     
+}
+
+extension AddStockViewController : UITableViewDelegate {
+    func didTapButtonInCell(_ cell: TickerSearchResultCellTableViewCell) {
+        print("User chose a search result cell")
+        print("self: \(self)")
+        stockSymbolField.text = cell.stockSearchResult?.ticker
+        tableView.isHidden = true
+        stockSearchBar.text = ""
+        priceField.becomeFirstResponder()
+    }
+}
+
+
+extension AddStockViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tickerSearchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("tableView(AddStockViewController)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCellId", for: indexPath) as! TickerSearchResultCellTableViewCell
+        let searchResult = tickerSearchResults[indexPath.row]
+        
+        cell.companyName.text = searchResult.name
+        cell.stockSearchResult = searchResult
+        cell.delegate = self
+        
+        let path = "https://eodhd.com/img/logos/US/tsla.png"
+        
+        networkManager.getImageData(imageUrl: path, {(data: Data?, error: DMError?) ->  () in
+            if error != nil {
+                print("Didn't find \(path)")
+            }
+            
+            if let data {
+                print("Received: \(data.count) bytes for image \(path).")
+                if(data.count > 200){
+                    //this means it was found for stockPositons[i].logo
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        cell.stockImage.image = image
+                    }
+                } else {
+                    //try altLogo
+                    let newPath = "https://eodhd.com/img/logos/US/tsla.png"
+                    self.networkManager.getImageData(imageUrl: newPath, {(data: Data?, error: DMError?) ->  () in
+                        if let error {
+                            print("Didn't find \(newPath)")
+                        }
+                        
+                        if let data {
+                            print("Received: \(data.count) bytes for new image \(newPath).")
+                            let image = UIImage(data: data)
+                            DispatchQueue.main.async {
+                                cell.stockImage.image = image
+                            }
+                        }
+                    })
+                }
+                
+                //self.tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+            }
+        })
+        
+        return cell
+    }
 }

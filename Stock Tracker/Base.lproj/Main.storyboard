@@ -467,7 +467,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Wn7-AF-LJo">
+                            <searchBar contentMode="redraw" placeholder="Ticker Symbol..." translatesAutoresizingMaskIntoConstraints="NO" id="Wn7-AF-LJo">
                                 <rect key="frame" x="0.0" y="111" width="393" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="50C-nC-18Y"/>
@@ -477,13 +477,20 @@
                                     <outlet property="delegate" destination="yJK-UC-0I2" id="E7u-Xb-rDj"/>
                                 </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jfN-rp-dzu">
+                                <rect key="frame" x="5" y="155" width="383" height="243.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Ys-k2-kzS"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1Ys-k2-kzS" firstAttribute="trailing" secondItem="nzO-Lf-gCu" secondAttribute="trailing" constant="10" id="4Dp-di-omm"/>
                             <constraint firstItem="VWX-yJ-IY3" firstAttribute="top" secondItem="LTR-s2-Ctb" secondAttribute="bottom" constant="10" id="7qP-cr-cOQ"/>
+                            <constraint firstItem="jfN-rp-dzu" firstAttribute="top" secondItem="Wn7-AF-LJo" secondAttribute="bottom" id="Ccy-z1-Wfc"/>
+                            <constraint firstItem="1Ys-k2-kzS" firstAttribute="trailing" secondItem="jfN-rp-dzu" secondAttribute="trailing" constant="5" id="Eno-AD-kpr"/>
                             <constraint firstItem="Wn7-AF-LJo" firstAttribute="centerX" secondItem="gbo-6N-LPY" secondAttribute="centerX" id="Gkb-qW-fMV"/>
+                            <constraint firstItem="os3-sG-xD2" firstAttribute="top" secondItem="jfN-rp-dzu" secondAttribute="bottom" constant="5" id="I8h-50-arV"/>
                             <constraint firstItem="LTR-s2-Ctb" firstAttribute="centerX" secondItem="8zi-xU-BO9" secondAttribute="centerX" id="Jkl-F1-EgZ"/>
                             <constraint firstItem="os3-sG-xD2" firstAttribute="centerY" secondItem="8zi-xU-BO9" secondAttribute="centerY" id="KLV-17-523"/>
                             <constraint firstItem="Wn7-AF-LJo" firstAttribute="leading" secondItem="1Ys-k2-kzS" secondAttribute="leading" id="MWN-bX-KTX"/>
@@ -492,6 +499,7 @@
                             <constraint firstItem="LTR-s2-Ctb" firstAttribute="leading" secondItem="1Ys-k2-kzS" secondAttribute="leading" constant="10" id="RIz-6g-tGX"/>
                             <constraint firstItem="nzO-Lf-gCu" firstAttribute="top" secondItem="VWX-yJ-IY3" secondAttribute="bottom" constant="10" id="T1n-2o-vw5"/>
                             <constraint firstItem="Wn7-AF-LJo" firstAttribute="top" secondItem="gbo-6N-LPY" secondAttribute="bottom" constant="10" id="h98-JL-Wbz"/>
+                            <constraint firstItem="jfN-rp-dzu" firstAttribute="leading" secondItem="1Ys-k2-kzS" secondAttribute="leading" constant="5" id="hF6-tZ-jq0"/>
                             <constraint firstItem="nzO-Lf-gCu" firstAttribute="leading" secondItem="1Ys-k2-kzS" secondAttribute="leading" constant="10" id="jjg-FQ-1my"/>
                             <constraint firstItem="1Ys-k2-kzS" firstAttribute="trailing" secondItem="VWX-yJ-IY3" secondAttribute="trailing" constant="10" id="kHc-AJ-hTC"/>
                             <constraint firstItem="gbo-6N-LPY" firstAttribute="top" secondItem="1Ys-k2-kzS" secondAttribute="top" constant="71" id="r24-34-CDf"/>
@@ -505,6 +513,7 @@
                         <outlet property="quantityField" destination="nzO-Lf-gCu" id="rMg-jH-Pay"/>
                         <outlet property="stockSearchBar" destination="Wn7-AF-LJo" id="8GK-fx-vSp"/>
                         <outlet property="stockSymbolField" destination="LTR-s2-Ctb" id="mUg-21-CpI"/>
+                        <outlet property="tableView" destination="jfN-rp-dzu" id="8mK-Qt-Ss2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTu-l9-mer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
