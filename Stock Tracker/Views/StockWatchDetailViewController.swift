@@ -78,11 +78,11 @@ class StockWatchDetailViewController : UIViewController {
     
     func performDelete(){
         networkManager.removeStockWatch(authToken: self.userManager.authToken!, uuid: self.parentViewContoller!.currentDetailStockWatch!.guid, {(removeStockResponse: RemoveStockResponse?, error: DMError?) -> () in
-            if let error {
+            if error != nil {
                 //TODO: Handle delete error
             }
             
-            if let removeStockResponse {
+            if removeStockResponse != nil {
                 print("Sucessfully removed stock watch")
                 //reload data for parent
                 self.parentViewContoller?.loadData()

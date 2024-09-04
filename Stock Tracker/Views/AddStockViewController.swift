@@ -31,6 +31,24 @@ class AddStockViewController: UIViewController, TickerSearchResultCellDelegate {
             return
         }
         
+        networkManager.addStockWatch(authToken:self.userManager.authToken!, count: quantity!, ticker: stockSymbolField.text!, cost: price!, {(addStockResponse: AddStockResponse?, error: DMError?) ->  () in
+            if let error {
+                DispatchQueue.main.async {
+                    self.presentError(error)
+                }
+            }
+            
+            if let addStockResponse {
+                print("Sucessfully added \(addStockResponse.ticker) to stock list")
+                //reload data for parent
+                self.parentViewContoller?.loadData()
+                //dismiss current view
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true)
+                }
+            }
+
+        })
         
     }
     
@@ -86,7 +104,10 @@ class AddStockViewController: UIViewController, TickerSearchResultCellDelegate {
 extension AddStockViewController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("\(searchText)")
+        if(searchText.isEmpty){
+            tableView.isHidden = true
+            return
+        }
         
         networkManager.searchTicker(authToken:self.userManager.authToken!, searchText: searchText,  {(searchResults: [StockSearchResult]?, error: DMError?) ->  () in
             if let error {
