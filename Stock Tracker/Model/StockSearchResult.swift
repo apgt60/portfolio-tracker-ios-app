@@ -11,4 +11,6 @@ struct StockSearchResult : Codable {
     let id: Int
     let ticker: String
     let name: String
+    let logo: String
+    let altLogo: String
 }

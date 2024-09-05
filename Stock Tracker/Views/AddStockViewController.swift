@@ -161,7 +161,7 @@ extension AddStockViewController : UITableViewDataSource {
         cell.stockSearchResult = searchResult
         cell.delegate = self
         
-        let path = "https://eodhd.com/img/logos/US/tsla.png"
+        let path = searchResult.logo
         
         networkManager.getImageData(imageUrl: path, {(data: Data?, error: DMError?) ->  () in
             if error != nil {
@@ -175,10 +175,12 @@ extension AddStockViewController : UITableViewDataSource {
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
                         cell.stockImage.image = image
+//                        self.tableView.reloadData()
                     }
                 } else {
                     //try altLogo
-                    let newPath = "https://eodhd.com/img/logos/US/tsla.png"
+                    print("trying altLogo")
+                    let newPath = searchResult.altLogo
                     self.networkManager.getImageData(imageUrl: newPath, {(data: Data?, error: DMError?) ->  () in
                         if let error {
                             print("Didn't find \(newPath)")
@@ -189,14 +191,15 @@ extension AddStockViewController : UITableViewDataSource {
                             let image = UIImage(data: data)
                             DispatchQueue.main.async {
                                 cell.stockImage.image = image
+//                                self.tableView.reloadData()
                             }
                         }
                     })
                 }
-                
-                //self.tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
             }
         })
+        
+//        self.tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
         
         return cell
     }
