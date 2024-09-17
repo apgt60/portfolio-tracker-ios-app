@@ -22,8 +22,12 @@ enum DMError: String, Error {
 class NetworkManager {
     static let shared = NetworkManager()
     //TODO: Create environment variable for this URL
-    private let baseUrl = "http://localhost:8765/api/"
-        //"https://portfolio-tracker-server-j0cb.onrender.com/api/"
+    private let baseUrl = AppEnvManager.rootURL
+    
+    /*
+     "http://localhost:8765/api/"
+     "https://portfolio-tracker-server-j0cb.onrender.com/api/"
+    */
     
     private init() {}
     

@@ -1,0 +1,9 @@
+//
+//  Config.xcconfig
+//  Portfolio Tracker
+//
+//  Created by Amit Patel on 9/17/24.
+//
+
+SLASH = /
+API_BASE_URL = http:$(SLASH)/localhost:8765/api/

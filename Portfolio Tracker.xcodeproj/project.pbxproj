@@ -31,6 +31,9 @@
 		28A431A52C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A431A12C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.xib */; };
 		28A431A62C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A431A12C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.xib */; };
 		28A431A72C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A431A02C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.swift */; };
+		28A431AA2C9A1B340058D31E /* AppEnvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A431A92C9A1B340058D31E /* AppEnvManager.swift */; };
+		28A431AB2C9A1B340058D31E /* AppEnvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A431A92C9A1B340058D31E /* AppEnvManager.swift */; };
+		28A431AC2C9A1B340058D31E /* AppEnvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A431A92C9A1B340058D31E /* AppEnvManager.swift */; };
 		28CEDE7C2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
 		28CEDE7D2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
 		28CEDE7E2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */; };
@@ -102,6 +105,8 @@
 		28A4319C2C83AF300058D31E /* StockSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchResult.swift; sourceTree = "<group>"; };
 		28A431A02C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TickerSearchResultCellTableViewCell.swift; path = "Stock Tracker/Display/TickerSearchResultCellTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		28A431A12C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TickerSearchResultCellTableViewCell.xib; path = "Stock Tracker/Display/TickerSearchResultCellTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-Dev.xcconfig"; sourceTree = "<group>"; };
+		28A431A92C9A1B340058D31E /* AppEnvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvManager.swift; sourceTree = "<group>"; };
 		28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatchDetailViewController.swift; sourceTree = "<group>"; };
 		28E60AB12B8F7E0E008BBC82 /* Portfolio Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portfolio Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E60AB42B8F7E0E008BBC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +164,7 @@
 		28E60AA82B8F7E0E008BBC82 = {
 			isa = PBXGroup;
 			children = (
+				28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */,
 				28E60AB32B8F7E0E008BBC82 /* Stock Tracker */,
 				28E60ACD2B8F7E11008BBC82 /* Stock TrackerTests */,
 				28E60AD72B8F7E11008BBC82 /* Stock TrackerUITests */,
@@ -216,6 +222,7 @@
 			children = (
 				28E60AE82B8F8417008BBC82 /* NetworkManager.swift */,
 				28E60AED2B8F8B51008BBC82 /* UserManager.swift */,
+				28A431A92C9A1B340058D31E /* AppEnvManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -409,6 +416,7 @@
 				28E60AB52B8F7E0E008BBC82 /* AppDelegate.swift in Sources */,
 				28E60AEC2B8F87B0008BBC82 /* LocalUser.swift in Sources */,
 				287FBFA52C47202C0054E113 /* WelcomeViewController.swift in Sources */,
+				28A431AA2C9A1B340058D31E /* AppEnvManager.swift in Sources */,
 				28A431992C83AD4D0058D31E /* StockSearchResponse.swift in Sources */,
 				28FC8EAE2C2B653E004869C6 /* GenericErrorResponse.swift in Sources */,
 				287FBFA92C485CDA0054E113 /* RegisterUserResponse.swift in Sources */,
@@ -433,6 +441,7 @@
 				287FBFAA2C485CDA0054E113 /* RegisterUserResponse.swift in Sources */,
 				287FBFA22C4708970054E113 /* RegisterViewController.swift in Sources */,
 				28FC8EB32C2B6F77004869C6 /* AddStockErrorResponse.swift in Sources */,
+				28A431AB2C9A1B340058D31E /* AppEnvManager.swift in Sources */,
 				28A4319A2C83AD4D0058D31E /* StockSearchResponse.swift in Sources */,
 				28CEDE7D2BA1C755007D86B3 /* StockWatchDetailViewController.swift in Sources */,
 				28FC8EAF2C2B653E004869C6 /* GenericErrorResponse.swift in Sources */,
@@ -460,6 +469,7 @@
 				28A4319F2C83AF300058D31E /* StockSearchResult.swift in Sources */,
 				28E60AD92B8F7E11008BBC82 /* Stock_TrackerUITests.swift in Sources */,
 				28E60AF92B90D60B008BBC82 /* StockPositionCell.swift in Sources */,
+				28A431AC2C9A1B340058D31E /* AppEnvManager.swift in Sources */,
 				287FBFA72C47202C0054E113 /* WelcomeViewController.swift in Sources */,
 				28FC8EB42C2B6F77004869C6 /* AddStockErrorResponse.swift in Sources */,
 				28A431A72C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.swift in Sources */,
@@ -510,6 +520,7 @@
 /* Begin XCBuildConfiguration section */
 		28E60ADC2B8F7E11008BBC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -564,6 +575,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				NEW_SETTING = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -573,6 +585,7 @@
 		};
 		28E60ADD2B8F7E11008BBC82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -621,6 +634,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				NEW_SETTING = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -629,6 +643,7 @@
 		};
 		28E60ADF2B8F7E11008BBC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -657,6 +672,7 @@
 		};
 		28E60AE02B8F7E11008BBC82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -685,6 +701,7 @@
 		};
 		28E60AE22B8F7E11008BBC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -704,6 +721,7 @@
 		};
 		28E60AE32B8F7E11008BBC82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -723,6 +741,7 @@
 		};
 		28E60AE52B8F7E11008BBC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -740,6 +759,7 @@
 		};
 		28E60AE62B8F7E11008BBC82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
