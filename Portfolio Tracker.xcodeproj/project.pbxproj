@@ -107,6 +107,7 @@
 		28A431A12C87AD7A0058D31E /* TickerSearchResultCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TickerSearchResultCellTableViewCell.xib; path = "Stock Tracker/Display/TickerSearchResultCellTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-Dev.xcconfig"; sourceTree = "<group>"; };
 		28A431A92C9A1B340058D31E /* AppEnvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvManager.swift; sourceTree = "<group>"; };
+		28A431AD2C9A60F90058D31E /* Config-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-Release.xcconfig"; sourceTree = "<group>"; };
 		28CEDE7B2BA1C755007D86B3 /* StockWatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatchDetailViewController.swift; sourceTree = "<group>"; };
 		28E60AB12B8F7E0E008BBC82 /* Portfolio Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portfolio Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E60AB42B8F7E0E008BBC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +165,7 @@
 		28E60AA82B8F7E0E008BBC82 = {
 			isa = PBXGroup;
 			children = (
+				28A431AD2C9A60F90058D31E /* Config-Release.xcconfig */,
 				28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */,
 				28E60AB32B8F7E0E008BBC82 /* Stock Tracker */,
 				28E60ACD2B8F7E11008BBC82 /* Stock TrackerTests */,
@@ -585,7 +587,7 @@
 		};
 		28E60ADD2B8F7E11008BBC82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
+			baseConfigurationReference = 28A431AD2C9A60F90058D31E /* Config-Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -643,7 +645,6 @@
 		};
 		28E60ADF2B8F7E11008BBC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -672,7 +673,6 @@
 		};
 		28E60AE02B8F7E11008BBC82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -701,7 +701,6 @@
 		};
 		28E60AE22B8F7E11008BBC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -721,7 +720,6 @@
 		};
 		28E60AE32B8F7E11008BBC82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -741,7 +739,6 @@
 		};
 		28E60AE52B8F7E11008BBC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -759,7 +756,6 @@
 		};
 		28E60AE62B8F7E11008BBC82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A431A82C9A15E60058D31E /* Config-Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

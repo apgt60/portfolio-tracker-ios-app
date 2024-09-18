@@ -1,0 +1,9 @@
+//
+//  Config-Release.xcconfig
+//  Portfolio Tracker
+//
+//  Created by Amit Patel on 9/18/24.
+//
+
+SLASH = /
+API_BASE_URL = https:$(SLASH)/portfolio-tracker-server-j0cb.onrender.com/api/
