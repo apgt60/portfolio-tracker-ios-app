@@ -1,1 +1,1 @@
-![iOS Portfolio Tracker App Screenshot](/public/Portfolio_Tracker_20240423.png)
+![iOS Portfolio Tracker App Screenshot](/public/Home_20241002.png)
