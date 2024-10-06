@@ -16,6 +16,7 @@ enum DMError: String, Error {
     case invalidTicker = "The ticker symbol entered is invalid.  Please try again."
     case emailTaken = "An account with the email already exists."
     case passwordMismatch = "Passwords do not match.  Please try again."
+    case emailAndPasswordLength = "Please provide a valid email.  Password must be 6 characters long."
 }
 
 
@@ -196,6 +197,7 @@ class NetworkManager {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(authToken, forHTTPHeaderField: "authtoken")
         
+        //Use DI to abstract this so that it can be mocked
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if(error != nil){
                 print("Error not nil: \(error!)")
