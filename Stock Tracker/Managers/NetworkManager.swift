@@ -81,7 +81,7 @@ class NetworkManager {
                 if httpResponse.statusCode == 400{
                     do {
                         let decodedData = try decoder.decode(GenericErrorResponse.self, from: data!)
-                        print("400 server message: \(decodedData.message)")
+                        print("400 server FieldErrors count: \(decodedData.errors.count)")
                         callback(nil, DMError.emailTaken)
                         return
                     } catch {
@@ -153,7 +153,7 @@ class NetworkManager {
                 if httpResponse.statusCode == 401{
                     do {
                         let decodedData = try decoder.decode(GenericErrorResponse.self, from: data!)
-                        print("401 server message: \(decodedData.message)")
+                        print("401 FieldError count: \(decodedData.errors.count)")
                         callback(nil, DMError.invalidCredentials)
                         return
                     } catch {
