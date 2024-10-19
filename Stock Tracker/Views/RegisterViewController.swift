@@ -79,7 +79,7 @@ class RegisterViewController: UIViewController {
         print(error.rawValue)
         let alert = UIAlertController(title: "Registration Error", message: error.rawValue, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            self.emailText.text = ""
+//            self.emailText.text = ""
             self.passwordText.text = ""
             self.confirmPasswordText.text = ""
         }))

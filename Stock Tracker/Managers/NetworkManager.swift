@@ -16,7 +16,8 @@ enum DMError: String, Error {
     case invalidTicker = "The ticker symbol entered is invalid.  Please try again."
     case emailTaken = "An account with the email already exists."
     case passwordMismatch = "Passwords do not match.  Please try again."
-    case emailAndPasswordLength = "Please provide a valid email.  Password must be 6 characters long."
+    case emailInvalid = "Please provide a valid email address."
+    case passwordInvalid = "Password must be 6 characters long."
 }
 
 
@@ -76,14 +77,23 @@ class NetworkManager {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
-            //Check for 400 Bad Request if email is already taken
+            //Check for 400 Bad Request if input is invalid
             if let httpResponse = response as? HTTPURLResponse{
                 if httpResponse.statusCode == 400{
                     do {
                         let decodedData = try decoder.decode(GenericErrorResponse.self, from: data!)
                         print("400 server FieldErrors count: \(decodedData.errors.count)")
-                        callback(nil, DMError.emailTaken)
-                        return
+                        for error in decodedData.errors {
+                            if(error.field == "username" && error.error == "Email is not valid."){
+                                callback(nil, DMError.emailInvalid)
+                                return
+                            } else if(error.field == "password"){
+                                callback(nil, DMError.passwordInvalid)
+                            } else if(error.field == "username" && error.error == "Email already in use"){
+                                callback(nil, DMError.emailTaken)
+                                return
+                            }
+                        }
                     } catch {
                         callback(nil, DMError.invalidResponse)
                         print(error)
