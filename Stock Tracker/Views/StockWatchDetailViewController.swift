@@ -21,6 +21,7 @@ class StockWatchDetailViewController : UIViewController {
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var gainLossPercentLabel: UILabel!
     @IBOutlet weak var numberOfSharesLabel: UILabel!
+    @IBOutlet weak var unitCostLabel: UILabel!
     @IBOutlet weak var totalCostLabel: UILabel!
     @IBOutlet weak var currValueLabel: UILabel!
     @IBOutlet weak var totalGainLossLabel: UILabel!
@@ -35,6 +36,7 @@ class StockWatchDetailViewController : UIViewController {
         let stockWatch = stockPositionCell!.stockWatch
         
         self.numberOfSharesLabel.text = "Shares: \(stockWatch!.count)"
+        self.unitCostLabel.text = "Unit Cost: $\(stockWatch!.cost)"
         self.totalCostLabel.text = "Total Cost: $\(stockWatch!.totalCost)"
         self.currValueLabel.text = "Curr Value: $\(stockWatch!.totalAmount)"
         
@@ -47,9 +49,7 @@ class StockWatchDetailViewController : UIViewController {
         
         self.tickerLabel.text = stockWatch!.ticker
         self.nameLabel.text = stockWatch!.name
-//        self.quoteLabel.text = "$\(String(describing: stockWatch!.quote))"
         self.quoteLabel.text = "$\(String(stockWatch!.quote))"
-//        self.gainLossPercentLabel.text = "\(String(describing: stockWatch!.gainLoss))%"
         self.gainLossPercentLabel.text = "\(String(stockWatch!.gainLoss))%"
         if(stockWatch!.quote > stockWatch!.cost){
             self.gainLossPercentLabel.textColor = UIColor.green
