@@ -51,7 +51,7 @@ class StockWatchDetailViewController : UIViewController {
         self.nameLabel.text = stockWatch!.name
         self.quoteLabel.text = "$\(String(stockWatch!.quote))"
         self.gainLossPercentLabel.text = "\(String(stockWatch!.gainLoss))%"
-        if(stockWatch!.quote > stockWatch!.cost){
+        if(Float(stockWatch!.quote) > Float(stockWatch!.cost)!){
             self.gainLossPercentLabel.textColor = UIColor.green
             self.totalGainLossLabel.text = "Total Gain: $\(stockWatch!.totalGainLoss)"
         } else {

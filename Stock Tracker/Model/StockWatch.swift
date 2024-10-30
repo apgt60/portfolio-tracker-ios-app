@@ -19,14 +19,14 @@ struct StockWatch: Codable {
     let altLogo: String
     let name: String
     let count: Float
-    let cost: Float
+    let cost: String
     let id: Int
     let guid: String
     let quote: Float
-    let gainLoss: Float
-    let totalAmount: Float
-    let totalCost: Float
-    let totalGainLoss: Float
+    let gainLoss: String
+    let totalAmount: String
+    let totalCost: String
+    let totalGainLoss: String
 }
 
 /*

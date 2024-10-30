@@ -120,7 +120,7 @@ extension HomeViewController : UITableViewDataSource {
         cell.stockWatch = stockPosition
         cell.delegate = self
         
-        if(stockPosition.quote >= stockPosition.cost){
+        if(Float(stockPosition.quote) >= Float(stockPosition.cost)!){
             cell.upDownIcon.image = UIImage(named: "UpArrow")
         } else {
             cell.upDownIcon.image = UIImage(named: "DownArrow")
