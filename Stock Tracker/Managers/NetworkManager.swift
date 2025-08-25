@@ -21,17 +21,26 @@ enum DMError: String, Error {
 }
 
 
+protocol NetworkSession {
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
+extension URLSession: NetworkSession {}
+
 class NetworkManager {
     static let shared = NetworkManager()
     //TODO: Create environment variable for this URL
     private let baseUrl = AppEnvManager.rootURL
+    private let session: NetworkSession
     
     /*
      "http://localhost:8765/api/"
      "https://portfolio-tracker-server-j0cb.onrender.com/api/"
     */
     
-    private init() {}
+    init(session: NetworkSession = URLSession.shared) {
+        self.session = session
+    }
     
     func registerUser(email: String, password: String, firstName: String, lastName: String, _ callback : @escaping (RegisterUserResponse?, DMError?) -> ()) {
         
@@ -61,7 +70,7 @@ class NetworkManager {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if(error != nil){
                 print("Error not nil: \(error!)")
                 callback(nil, DMError.unableToComplete)
@@ -142,7 +151,7 @@ class NetworkManager {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if(error != nil){
                 print("Error not nil: \(error!)")
                 callback(nil, DMError.unableToComplete)
@@ -208,7 +217,7 @@ class NetworkManager {
         request.addValue(authToken, forHTTPHeaderField: "authtoken")
         
         //Use DI to abstract this so that it can be mocked
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if(error != nil){
                 print("Error not nil: \(error!)")
                 callback(nil, DMError.unableToComplete)
@@ -258,7 +267,7 @@ class NetworkManager {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(authToken, forHTTPHeaderField: "authtoken")
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if(error != nil){
                 print("Error not nil: \(error!)")
                 callback(nil, DMError.unableToComplete)
@@ -316,7 +325,7 @@ class NetworkManager {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(authToken, forHTTPHeaderField: "authtoken")
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if(error != nil){
                 print("Error not nil: \(error!)")
                 callback(nil, DMError.unableToComplete)
@@ -380,7 +389,7 @@ class NetworkManager {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(authToken, forHTTPHeaderField: "authtoken")
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if(error != nil){
                 print("Error not nil: \(error!)")
                 callback(nil, DMError.unableToComplete)
@@ -437,7 +446,7 @@ class NetworkManager {
         //set http method as GET
         request.httpMethod = "GET"
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if(error != nil){
                 print("Error not nil: \(error!)")
                 callback(nil, DMError.unableToComplete)
